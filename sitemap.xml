@@ -3,12 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.alexgama.io/about/</loc>
-    <lastmod>2019-10-29T13:49:23+06:00</lastmod>
+    <loc>https://www.alexgama.io/</loc>
+    <lastmod>2020-05-12T10:07:47+06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.alexgama.io/</loc>
+    <loc>https://www.alexgama.io/categories/</loc>
+    <lastmod>2020-05-12T10:07:47+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/tags/game/</loc>
+    <lastmod>2020-05-12T10:07:47+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/blog/i-am-a-very-slow-thinker/</loc>
+    <lastmod>2020-05-12T10:07:47+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/categories/personal/</loc>
+    <lastmod>2020-05-12T10:07:47+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/tags/</loc>
+    <lastmod>2020-05-12T10:07:47+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/about/</loc>
     <lastmod>2019-10-29T13:49:23+06:00</lastmod>
   </url>
   
@@ -20,31 +45,6 @@
   <url>
     <loc>https://www.alexgama.io/search/</loc>
     <lastmod>2019-10-29T13:49:23+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/categories/android-and-gmaing/</loc>
-    <lastmod>2019-10-29T10:07:47+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/categories/</loc>
-    <lastmod>2019-10-29T10:07:47+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/tags/game/</loc>
-    <lastmod>2019-10-29T10:07:47+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/blog/post-1/</loc>
-    <lastmod>2019-10-29T10:07:47+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/tags/</loc>
-    <lastmod>2019-10-29T10:07:47+06:00</lastmod>
   </url>
   
 </urlset>
