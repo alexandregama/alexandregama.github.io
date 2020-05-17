@@ -4,12 +4,37 @@
   
   <url>
     <loc>https://www.alexgama.io/</loc>
-    <lastmod>2020-05-15T10:07:47+06:00</lastmod>
+    <lastmod>2020-05-16T19:07:47+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/categories/architecture/</loc>
+    <lastmod>2020-05-16T19:07:47+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/tags/blog/</loc>
+    <lastmod>2020-05-16T19:07:47+06:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.alexgama.io/categories/</loc>
-    <lastmod>2020-05-15T10:07:47+06:00</lastmod>
+    <lastmod>2020-05-16T19:07:47+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/tags/go/</loc>
+    <lastmod>2020-05-16T19:07:47+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/blog/my-blog-setup-long-story-short-going-through-hugo-github-pages/</loc>
+    <lastmod>2020-05-16T19:07:47+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/tags/</loc>
+    <lastmod>2020-05-16T19:07:47+06:00</lastmod>
   </url>
   
   <url>
@@ -29,11 +54,6 @@
   
   <url>
     <loc>https://www.alexgama.io/categories/personal/</loc>
-    <lastmod>2020-05-15T10:07:47+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/tags/</loc>
     <lastmod>2020-05-15T10:07:47+06:00</lastmod>
   </url>
   
