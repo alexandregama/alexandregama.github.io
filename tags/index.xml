@@ -38,5 +38,32 @@
       <description></description>
     </item>
     
+    <item>
+      <title>JavaScript</title>
+      <link>https://www.alexgama.io/tags/javascript/</link>
+      <pubDate>Tue, 29 Oct 2019 10:07:47 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>React</title>
+      <link>https://www.alexgama.io/tags/react/</link>
+      <pubDate>Tue, 29 Oct 2019 10:07:47 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Redux</title>
+      <link>https://www.alexgama.io/tags/redux/</link>
+      <pubDate>Tue, 29 Oct 2019 10:07:47 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/tags/redux/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
