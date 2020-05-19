@@ -6,10 +6,20 @@
     <description>Recent content on Alex Gama | Personal blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 May 2020 19:07:47 +0600</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2020 10:07:47 +0600</lastBuildDate>
     
 	<atom:link href="https://www.alexgama.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Planning to Manage State with React? Welcome Recoil</title>
+      <link>https://www.alexgama.io/blog/planning-to-manage-state-with-react-welcome-recoil/</link>
+      <pubDate>Mon, 18 May 2020 10:07:47 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/blog/planning-to-manage-state-with-react-welcome-recoil/</guid>
+      <description>Hey friends!
+This will be really short, I promise. This is the discovery of the day and I want to share it.</description>
+    </item>
     
     <item>
       <title>My Blog Set Up - Long Story Short going through Hugo and Github Pages</title>
@@ -38,16 +48,6 @@ I don&amp;rsquo;t know about you, but when it comes to personal stuff, I overthi
       
       <guid>https://www.alexgama.io/blog/i-am-a-very-slow-thinker/</guid>
       <description>I came across this post titled &amp;ldquo;I&amp;rsquo;m very slow thinker&amp;rdquo; by Derek Sivers and I really liked it.</description>
-    </item>
-    
-    <item>
-      <title>Planning to Manage State with React? Welcome Recoil</title>
-      <link>https://www.alexgama.io/blog/planning-to-manage-state-with-react-welcome-recoil/</link>
-      <pubDate>Tue, 29 Oct 2019 10:07:47 +0600</pubDate>
-      
-      <guid>https://www.alexgama.io/blog/planning-to-manage-state-with-react-welcome-recoil/</guid>
-      <description>Hey friends!
-This will be really short, I promise. This is the discovery of the day and I want to share it.</description>
     </item>
     
     <item>
