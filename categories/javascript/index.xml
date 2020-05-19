@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>JavaScript on Alex Gama | Personal blog</title>
+    <title>Javascript on Alex Gama | Personal blog</title>
     <link>https://www.alexgama.io/categories/javascript/</link>
-    <description>Recent content in JavaScript on Alex Gama | Personal blog</description>
+    <description>Recent content in Javascript on Alex Gama | Personal blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 29 Oct 2019 10:07:47 +0600</lastBuildDate>
@@ -18,7 +18,7 @@
       
       <guid>https://www.alexgama.io/blog/planning-to-manage-state-with-react-welcome-recoil/</guid>
       <description>Hey friends!
-This will be really short, I promise. This is the discovery of the day and I want to share.</description>
+This will be really short, I promise. This is the discovery of the day and I want to share it.</description>
     </item>
     
   </channel>
