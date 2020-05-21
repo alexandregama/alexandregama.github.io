@@ -13,27 +13,7 @@
   </url>
   
   <url>
-    <loc>https://www.alexgama.io/tags/game/</loc>
-    <lastmod>2020-05-19T10:07:47+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/tags/html/</loc>
-    <lastmod>2020-05-19T10:07:47+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/categories/html/</loc>
-    <lastmod>2020-05-19T10:07:47+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/tags/new/</loc>
-    <lastmod>2020-05-19T10:07:47+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/tags/photos/</loc>
+    <loc>https://www.alexgama.io/categories/podcast-review/</loc>
     <lastmod>2020-05-19T10:07:47+06:00</lastmod>
   </url>
   
@@ -43,7 +23,7 @@
   </url>
   
   <url>
-    <loc>https://www.alexgama.io/tags/python/</loc>
+    <loc>https://www.alexgama.io/tags/productivity/</loc>
     <lastmod>2020-05-19T10:07:47+06:00</lastmod>
   </url>
   
@@ -58,17 +38,17 @@
   </url>
   
   <url>
+    <loc>https://www.alexgama.io/categories/frameworks/</loc>
+    <lastmod>2020-05-18T10:07:47+06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.alexgama.io/tags/graphql/</loc>
     <lastmod>2020-05-18T10:07:47+06:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.alexgama.io/blog/planning-to-manage-state-with-react-welcome-recoil/</loc>
-    <lastmod>2020-05-18T10:07:47+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/categories/podcast-review/</loc>
     <lastmod>2020-05-18T10:07:47+06:00</lastmod>
   </url>
   
