@@ -6,80 +6,35 @@
     <description>Recent content in Tags on Alex Gama | Personal blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 May 2020 10:07:47 +0600</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2020 22:07:47 +0600</lastBuildDate>
     
 	<atom:link href="https://www.alexgama.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Game</title>
-      <link>https://www.alexgama.io/tags/game/</link>
-      <pubDate>Tue, 19 May 2020 10:07:47 +0600</pubDate>
+      <title>Productivity</title>
+      <link>https://www.alexgama.io/tags/productivity/</link>
+      <pubDate>Wed, 20 May 2020 22:07:47 +0600</pubDate>
       
-      <guid>https://www.alexgama.io/tags/game/</guid>
+      <guid>https://www.alexgama.io/tags/productivity/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>HTML</title>
-      <link>https://www.alexgama.io/tags/html/</link>
-      <pubDate>Tue, 19 May 2020 10:07:47 +0600</pubDate>
-      
-      <guid>https://www.alexgama.io/tags/html/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>New</title>
-      <link>https://www.alexgama.io/tags/new/</link>
-      <pubDate>Tue, 19 May 2020 10:07:47 +0600</pubDate>
-      
-      <guid>https://www.alexgama.io/tags/new/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Photos</title>
-      <link>https://www.alexgama.io/tags/photos/</link>
-      <pubDate>Tue, 19 May 2020 10:07:47 +0600</pubDate>
-      
-      <guid>https://www.alexgama.io/tags/photos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://www.alexgama.io/tags/python/</link>
-      <pubDate>Tue, 19 May 2020 10:07:47 +0600</pubDate>
-      
-      <guid>https://www.alexgama.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JavaScript</title>
-      <link>https://www.alexgama.io/tags/javascript/</link>
+      <title>Architecture</title>
+      <link>https://www.alexgama.io/tags/architecture/</link>
       <pubDate>Mon, 18 May 2020 10:07:47 +0600</pubDate>
       
-      <guid>https://www.alexgama.io/tags/javascript/</guid>
+      <guid>https://www.alexgama.io/tags/architecture/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>React</title>
-      <link>https://www.alexgama.io/tags/react/</link>
+      <title>GraphQL</title>
+      <link>https://www.alexgama.io/tags/graphql/</link>
       <pubDate>Mon, 18 May 2020 10:07:47 +0600</pubDate>
       
-      <guid>https://www.alexgama.io/tags/react/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Redux</title>
-      <link>https://www.alexgama.io/tags/redux/</link>
-      <pubDate>Mon, 18 May 2020 10:07:47 +0600</pubDate>
-      
-      <guid>https://www.alexgama.io/tags/redux/</guid>
+      <guid>https://www.alexgama.io/tags/graphql/</guid>
       <description></description>
     </item>
     
