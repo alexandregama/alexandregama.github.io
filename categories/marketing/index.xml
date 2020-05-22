@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>blog on Alex Gama | Personal blog</title>
-    <link>https://www.alexgama.io/marketing/</link>
-    <description>Recent content in blog on Alex Gama | Personal blog</description>
+    <title>Marketing on Alex Gama | Personal blog</title>
+    <link>https://www.alexgama.io/categories/marketing/</link>
+    <description>Recent content in Marketing on Alex Gama | Personal blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Oct 2019 13:49:23 +0600</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2020 18:07:47 +0600</lastBuildDate>
     
-	<atom:link href="https://www.alexgama.io/marketing/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.alexgama.io/categories/marketing/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

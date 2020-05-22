@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Alex Gama | Personal blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 May 2020 22:07:47 +0600</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2020 18:07:47 +0600</lastBuildDate>
     
 	<atom:link href="https://www.alexgama.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Marketing</title>
+      <link>https://www.alexgama.io/categories/marketing/</link>
+      <pubDate>Fri, 22 May 2020 18:07:47 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/categories/marketing/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Podcast Review</title>
