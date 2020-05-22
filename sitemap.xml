@@ -18,7 +18,7 @@
   </url>
   
   <url>
-    <loc>https://www.alexgama.io/blog/podcast-review-2-graphql-benefits-costs/</loc>
+    <loc>https://www.alexgama.io/reviews/podcast/podcast-review-2-graphql-benefits-costs/</loc>
     <lastmod>2020-05-20T22:07:47+06:00</lastmod>
   </url>
   
@@ -28,12 +28,17 @@
   </url>
   
   <url>
+    <loc>https://www.alexgama.io/reviews/</loc>
+    <lastmod>2020-05-20T22:07:47+06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.alexgama.io/tags/</loc>
     <lastmod>2020-05-20T22:07:47+06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.alexgama.io/blog/podcast-review-1-how-to-create-content-daily/</loc>
+    <loc>https://www.alexgama.io/reviews/podcast/podcast-review-1-how-to-create-content-daily/</loc>
     <lastmod>2020-05-19T10:07:47+06:00</lastmod>
   </url>
   
@@ -53,7 +58,7 @@
   </url>
   
   <url>
-    <loc>https://www.alexgama.io/blog/planning-to-manage-state-with-react-welcome-recoil/</loc>
+    <loc>https://www.alexgama.io/javascript/planning-to-manage-state-with-react-welcome-recoil/</loc>
     <lastmod>2020-05-18T10:07:47+06:00</lastmod>
   </url>
   
@@ -73,17 +78,17 @@
   </url>
   
   <url>
-    <loc>https://www.alexgama.io/blog/my-blog-setup-long-story-short-going-through-hugo-github-pages/</loc>
+    <loc>https://www.alexgama.io/frontend/my-blog-setup-long-story-short-going-through-hugo-github-pages/</loc>
     <lastmod>2020-05-16T19:07:47+06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.alexgama.io/blog/documenting-instead-of-creating-starting-the-journey/</loc>
+    <loc>https://www.alexgama.io/personal/documenting-instead-of-creating-starting-the-journey/</loc>
     <lastmod>2020-05-15T10:07:47+06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.alexgama.io/blog/i-am-a-very-slow-thinker/</loc>
+    <loc>https://www.alexgama.io/personal/i-am-a-very-slow-thinker/</loc>
     <lastmod>2020-05-15T10:07:47+06:00</lastmod>
   </url>
   
@@ -108,12 +113,37 @@
   </url>
   
   <url>
+    <loc>https://www.alexgama.io/frontend/</loc>
+    <lastmod>2019-10-29T13:49:23+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/javascript/</loc>
+    <lastmod>2019-10-29T13:49:23+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/marketing/</loc>
+    <lastmod>2019-10-29T13:49:23+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/personal/</loc>
+    <lastmod>2019-10-29T13:49:23+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/reviews/podcast/</loc>
+    <lastmod>2019-10-29T13:49:23+06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.alexgama.io/search/</loc>
     <lastmod>2019-10-29T13:49:23+06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.alexgama.io/blog/weekly-review-1/</loc>
+    <loc>https://www.alexgama.io/personal/weekly-review-1/</loc>
     <lastmod>2019-10-29T10:07:47+06:00</lastmod>
   </url>
   

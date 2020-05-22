@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on Alex Gama | Personal blog</title>
+    <link>https://www.alexgama.io/reviews/podcast/</link>
+    <description>Recent content in blog on Alex Gama | Personal blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Oct 2019 13:49:23 +0600</lastBuildDate>
+    
+	<atom:link href="https://www.alexgama.io/reviews/podcast/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Podcast Review #2: GraphQL&#39;s Benefits and Costs</title>
+      <link>https://www.alexgama.io/reviews/podcast/podcast-review-2-graphql-benefits-costs/</link>
+      <pubDate>Wed, 20 May 2020 22:07:47 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/reviews/podcast/podcast-review-2-graphql-benefits-costs/</guid>
+      <description>Hey friend!
+Running out of time today 😅
+Podcast of the day</description>
+    </item>
+    
+    <item>
+      <title>Podcast Review #1: How to create content daily</title>
+      <link>https://www.alexgama.io/reviews/podcast/podcast-review-1-how-to-create-content-daily/</link>
+      <pubDate>Tue, 19 May 2020 10:07:47 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/reviews/podcast/podcast-review-1-how-to-create-content-daily/</guid>
+      <description>Hey friend!
+I usually take some terrible handwritten notes when I&amp;rsquo;m reading a book and lately I&amp;rsquo;ve been following the same approach while listening podcasts</description>
+    </item>
+    
+  </channel>
+</rss>
