@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>Alex Gama | Personal blog</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="In this post, we&#39;re going to take a look at the amazing @Produces annotation, which is probably one of the most important and used annotations in the CDI world in Java!">
+  <meta name="author" content="Alex Gama">
+  <meta name="generator" content="Hugo 0.70.0" />
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://www.alexgama.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://www.alexgama.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://www.alexgama.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://www.alexgama.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://www.alexgama.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://www.alexgama.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://www.alexgama.io/images/favicon.png " type="image/x-icon">
+
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom">
+      <a class="navbar-brand mobile-view" href="https://www.alexgama.io/"><img class="img-fluid"
+          src="https://www.alexgama.io/images/alex-gama-logo.png" alt="Alex Gama | Personal blog"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.youtube.com/channel/UCn09BXJXOCPLARsqNvxEFuw"><i class="ti-youtube"></i></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/_alex_gama"><i class="ti-twitter-alt"></i></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.instagram.com/_alex_gama"><i class="ti-instagram"></i></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/alexandregama"><i class="ti-github"></i></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/in/alexandregama/"><i class="ti-linkedin"></i></a>
+            </li>
+            
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://www.alexgama.io/"><img class="img-fluid"
+            src="https://www.alexgama.io/images/alex-gama-logo.png" alt="Alex Gama | Personal blog"></a>
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.alexgama.io/"> Home </a>
+          </li>
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.alexgama.io/about">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.alexgama.io/blog">Post</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search px-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://www.alexgama.io//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        
+        <a href="/categories/java"
+          class="text-primary">Java</a>
+        
+        <h2>CDI in Java - Part 1 - Creating a Factory with @Produces Annotation</h2>
+        <div class="mb-3 post-meta">
+          <span>By Alex Gama</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>27 May 2020</span>
+          
+        </div>
+        
+        <img src="https://www.alexgama.io/images/post/java/cdi-series/cdi-in-java-series-part-1-creating-a-factory-using-produces-annotation.png" class="img-fluid w-100 mb-4" alt="CDI in Java - Part 1 - Creating a Factory with @Produces Annotation">
+        
+        <div class="content mb-5">
+          <p>Hey friend!</p>
+<p>This is the <strong>Part 1</strong> of the <a href="https://www.alexgama.io/tags/cdi-series/">CDI Series in Java</a> that contains:</p>
+<ul>
+<li>Part 1: Factory in CDI with the @Produces annotation</li>
+<li><a href="https://www.alexgama.io/cdi-in-java-series-part-2-qualifiers">Part 2</a>: CDI Qualifiers</li>
+<li><a href="https://www.alexgama.io/cdi-in-java-series-part-3-events-and-observers">Part 3</a>: Events and Observers in CDI</li>
+<li><a href="https://www.alexgama.io/cdi-in-java-series-part-4-lazy-initialization">Part 4</a>: CDI and Lazy Initialization</li>
+<li><a href="https://www.alexgama.io/cdi-in-java-series-part-5-interceptors">Part 5</a>: Interceptors in CDI</li>
+<li><a href="https://www.alexgama.io/cdi-in-java-series-part-6-dependency-injection-alternatives">Part 6</a>: CDI Dependency Injection and Alternatives</li>
+<li><a href="https://www.alexgama.io/cdi-in-java-series-part-7-decorators">Part 7</a>: Working with CDI Decorators</li>
+</ul>
+<p>In this post, we&rsquo;re going to take a look at the amazing <code>@Produces</code> annotation, which is probably one of the most important and used annotations in the CDI world in Java!</p>
+<p><strong>Setting the expectation</strong></p>
+<p>Before getting started, let&rsquo;s be on the same page. I&rsquo;m not gonna go into so much detail about CDI and Dependency Injection because I&rsquo;m kind of assuming you already know something about it. Forgive me if I&rsquo;m wrong. Don&rsquo;t be mad.</p>
+<p>This series will be about some specific points on how to use CDI in your code. Let me know if you want more detailed points :)</p>
+<p><strong>Problem contextualization</strong></p>
+<p>It&rsquo;s time to contextualize our challenge! We&rsquo;d like to create the following steps for our pseudo online store:</p>
+<ul>
+<li>Create a <strong>Checkout</strong> class to&hellip; you know&hellip; buy something</li>
+<li><strong>Log</strong> the operations on the console.</li>
+<li>Create a <strong>Logger</strong> class to keep this log on its own class. The famous cohesion.</li>
+<li>Customize this <strong>Logger</strong> to receive a <strong>Configuration,</strong> which indicates which <strong>Log Mode</strong> should be used</li>
+</ul>
+<p>Pretty simple, isn&rsquo;t? Let&rsquo;s jump crazily into code!</p>
+<h3 id="1-creating-the-main-class-in-cdi-20">#1: Creating the Main Class in CDI 2.0</h3>
+<p>Before creating the main class to execute our CDI code, let&rsquo;s create the important Checkout class:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Checkout</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">finishCheckout</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Finishing Checkout&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Great!</p>
+<p>In this example, we&rsquo;re going to use <strong>CDI 2.0</strong>, which allows us to use CDI in a <strong>standalone fashion</strong>!</p>
+<p>Let&rsquo;s bring the CDI power by creating a <strong>CDI Container</strong>, which allows us to instantiate objects</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">CDI<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">&gt;</span> container <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Weld<span style="color:#f92672">().</span><span style="color:#a6e22e">initialize</span><span style="color:#f92672">()</span>
+</code></pre></div><p>Nice! Below we have a <strong>Checkout</strong> object instance created by CDI:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainApplication</span> <span style="color:#f92672">{</span>
+
+   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>CDI<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">&gt;</span> container <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Weld<span style="color:#f92672">().</span><span style="color:#a6e22e">initialize</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+          Checkout checkout <span style="color:#f92672">=</span> container<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">(</span>Checkout<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">).</span><span style="color:#a6e22e">get</span><span style="color:#f92672">();</span>
+          checkout<span style="color:#f92672">.</span><span style="color:#a6e22e">finishCheckout</span><span style="color:#f92672">();</span>
+      <span style="color:#f92672">}</span>
+   <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Pretty easy, isn&rsquo;t? Notice the following code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Checkout checkout <span style="color:#f92672">=</span> container<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">(</span>Checkout<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">).</span><span style="color:#a6e22e">get</span><span style="color:#f92672">();</span>
+</code></pre></div><p>That code is the same as the following, which is injecting a Checkout object using the remarkable <strong>@Inject</strong> annotation:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Inject</span> 
+<span style="color:#66d9ef">private</span> Checkout checkout<span style="color:#f92672">;</span>
+</code></pre></div><p>Now, it&rsquo;s time to execute our CDI example, to validate our environment!</p>
+<p>You will see on your console something like this:</p>
+<pre><code>INFO: WELD-ENV-002003: 
+Weld SE container STATIC_INSTANCE initialized Finishing Checkout
+</code></pre><p>Great! Everything is up and running!</p>
+<h3 id="2-creating-a-specialized-class-for-logger">#2: Creating a Specialized Class for Logger</h3>
+<p>Logging is something important for us. To have a good cohesion, let&rsquo;s create a class that is responsible for logging messages.</p>
+<p>This class will be called <strong>SpecialLogger</strong>, as you can see below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpecialLogger</span> <span style="color:#f92672">{</span>
+
+   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">log</span><span style="color:#f92672">(</span>String message<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;LOG: &#34;</span> <span style="color:#f92672">+</span> message<span style="color:#f92672">);</span> <span style="color:#75715e">//ok, not that special 😒
+</span><span style="color:#75715e"></span>   <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Perfect! Now we&rsquo;d like to update the Checkout class to use the newest Logger class:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Checkout</span> <span style="color:#f92672">{</span>
+
+   <span style="color:#66d9ef">private</span> SpecialLogger logger<span style="color:#f92672">;</span>
+
+   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">finishCheckout</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      logger<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Finishing Checkout&#34;</span><span style="color:#f92672">);</span>
+   <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Sounds good, because now the Checkout class doesn&rsquo;t know how a Logger works under the hood, we&rsquo;re just using it!</p>
+<h3 id="3-logging-mode-to-log-messages-through-a-special-configuration">#3: Logging Mode to Log Messages Through a Special Configuration</h3>
+<p>it would be great to have a way to change the mode that the log is printed out. These modes could be the following:</p>
+<ul>
+<li>Debug Mode</li>
+<li>Info Mode</li>
+<li>Error Mode</li>
+<li>Etc.</li>
+</ul>
+<p>Our <strong>SpecialLogger</strong> should receive the desired Log Mode and print out the message using it.</p>
+<p>It&rsquo;s time to create the Configuration class that will receive the Log mode:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LogConfiguration</span> <span style="color:#f92672">{</span>
+
+   <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> infoMode<span style="color:#f92672">;</span>
+
+   <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> debugMode<span style="color:#f92672">;</span>
+
+   <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">LogConfiguration</span><span style="color:#f92672">(</span><span style="color:#66d9ef">boolean</span> infoMode<span style="color:#f92672">,</span> <span style="color:#66d9ef">boolean</span> debugMode<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">infoMode</span> <span style="color:#f92672">=</span> infoMode<span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">debugMode</span> <span style="color:#f92672">=</span> debugMode<span style="color:#f92672">;</span>
+   <span style="color:#f92672">}</span>
+
+   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isInInfoMode</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> infoMode<span style="color:#f92672">;</span>
+   <span style="color:#f92672">}</span>
+
+   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isInDebugMode</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> debugMode<span style="color:#f92672">;</span>
+   <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>I know, that&rsquo;s not the best code design, but I just want to keep the example clean and simple.</p>
+<p>Let&rsquo;s change the <strong>SpecialLogger</strong> class to be able to Log a message based on the <strong>LogConfiguration</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpecialLogger</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Inject</span>
+    <span style="color:#66d9ef">private</span> LogConfiguration configuration<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">SpecialLogger</span><span style="color:#f92672">(</span>LogConfiguration configuration<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">configuration</span> <span style="color:#f92672">=</span> configuration<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">log</span><span style="color:#f92672">(</span>String message<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>configuration<span style="color:#f92672">.</span><span style="color:#a6e22e">isInDebugMode</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DEBUG LOG: &#34;</span> <span style="color:#f92672">+</span> message<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>configuration<span style="color:#f92672">.</span><span style="color:#a6e22e">isInInfoMode</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DEBUG LOG: &#34;</span> <span style="color:#f92672">+</span> message<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DEFAULT LOG: &#34;</span> <span style="color:#f92672">+</span> message<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>As you can see, we&rsquo;re validating whether the log should use the <strong>Debug</strong> or <strong>Info</strong> mode, otherwise, the message must be printed out by using the <strong>Default</strong> mode.</p>
+<p>Let&rsquo;s try to run it:</p>
+<pre><code>WELD-001408: 
+Unsatisfied dependencies for type SpecialLogger with qualifiers @Default
+ at injection point [BackedAnnotatedField] 
+ @Inject 
+ private com.hackingcode.cdi.produces.Checkout.logger
+</code></pre><p>Yes, an exception will be thrown on our face. And that makes sense. CDI does not know how to inject the <strong>SpecialLogger</strong> object yet.</p>
+<p>CDI, behind the scenes, will execute the following steps:</p>
+<ul>
+<li>Hey, I can see that you need a <strong>SpecialLogger</strong> object here. That&rsquo;s ok for me. I&rsquo;ll try to find this class around your classpath</li>
+<li>I&rsquo;ve found this <strong>SpecialLogger</strong> class on your classpath</li>
+<li>I&rsquo;ll try to create a new <strong>SpecialLogger</strong> instance for you right now</li>
+<li>Ohhh, <strong>I can&rsquo;t do that</strong>! The <strong>SpecialLogger</strong> receives a LogConfiguration in its constructor. I don&rsquo;t even know what it is and I don&rsquo;t know how to create it!</li>
+</ul>
+<p>It&rsquo;s time to teach CDI how to get the job done and create the <strong>LogConfiguration</strong> class!</p>
+<h3 id="4-creating-a-factory-with-the-produces-annotation">#4: Creating a Factory With the @Produces Annotation</h3>
+<p>It&rsquo;s time to create a Factory to create the <strong>SpecialLogger</strong> based on the <strong>LogConfiguration</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpecialLoggerFactory</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> SpecialLogger <span style="color:#a6e22e">createLogger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        LogConfiguration logInDebugMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LogConfiguration<span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> SpecialLogger<span style="color:#f92672">(</span>logInDebugMode<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>It&rsquo;s a pretty simple Factory class. It has the method <strong>createLogger()</strong>, which returns a <strong>LogConfiguration</strong> object.</p>
+<p>But CDI <strong>doesn&rsquo;t know</strong> about this class yet or its method! Let&rsquo;s use the annotation <code>@Produces</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpecialLoggerFactory</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Produces</span>
+    <span style="color:#66d9ef">public</span> SpecialLogger <span style="color:#a6e22e">createLogger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        LogConfiguration logInDebugMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LogConfiguration<span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> SpecialLogger<span style="color:#f92672">(</span>logInDebugMode<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><blockquote>
+<p><strong>@Produces</strong> indicates to CDI that the method <strong>createLogger()</strong> should be used when a <strong>LogConfiguration</strong> object is needed</p>
+</blockquote>
+<p>The @Produces annotation will say to CDI:</p>
+<blockquote>
+<p>Hey CDI, please, use the <strong>createLogger()</strong> method when you need to Inject a <strong>SpecialLogger</strong> object in some place</p>
+</blockquote>
+<p>Of course, the returned object of the method <strong>createLogger()</strong> must be the same type that you&rsquo;re interested in, in this case, the <strong>SpecialLogger</strong>. Generics for an upcoming post 😏.</p>
+<p>That&rsquo;s it! I really hope that this article could be helpful to you!</p>
+<p>In the <a href="https://www.alexgama.io/cdi-in-java-series-part-2-qualifiers">next part</a> we&rsquo;re going to be hacking some code with <a href="https://www.alexgama.io/cdi-in-java-series-part-2-qualifiers">CDI and Qualifiers</a></p>
+<p>See you on <a href="https://twitter.com/_alex_gama/">Twitter</a> for more updates :)</p>
+<p>Let&rsquo;s keep in touch and don&rsquo;t forget to signup for my weekly newsletter 🙂</p>
+<p><a href="https://twitter.com/_alex_gama/">Twitter</a>
+<a href="https://www.youtube.com/channel/UCn09BXJXOCPLARsqNvxEFuw?view_as=subscriber/">Youtube</a>
+<a href="https://www.instagram.com/_alex_gama">Instagram</a>
+<a href="https://www.linkedin.com/in/alexandregama/">Linkedin</a></p>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">    
+        <h2>Join My Newsletter</h2>
+        <p class="text-light px-md-5 py-4 border-left border-right border-primary">You&rsquo;ll receive coding courses, tutorials and personal posts! I&rsquo;ll be happy to send them to you, weekly :)</p>            
+        <form action="https://alexgama.us18.list-manage.com/subscribe/post?u=ecda2456255e311ef6f1d58d1&amp;id=8130770b0a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="row justify-content-center" target="_blank" novalidate>
+          <div class="input-group col-md-8">
+            <input type="email" value="" name="EMAIL" class="form-control" placeholder="Your email" id="mce-EMAIL">
+
+            <div id="mce-responses" class="clear">
+              <div class="response" id="mce-error-response" style="display:none"></div>
+              <div class="response" id="mce-success-response" style="display:none"></div>
+            </div>    
+
+            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+              <input type="text" name="b_ecda2456255e311ef6f1d58d1_8130770b0a" tabindex="-1" value="">
+            </div>
+              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="input-group-text btn btn-primary">
+          </form>
+          <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+        </div>
+      </div>
+    </div>  
+  </div>    
+</section>
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <a href="https://www.alexgama.io/"><img src="https://www.alexgama.io/images/alex-gama-logo.png" alt="Alex Gama | Personal blog"></a>
+      </div>
+      
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Social Contacts</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.youtube.com/channel/UCn09BXJXOCPLARsqNvxEFuw">youtube</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://twitter.com/_alex_gama">twitter</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.instagram.com/_alex_gama">instagram</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://github.com/alexandregama">github</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.linkedin.com/in/alexandregama/">linkedin</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Categories</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/architecture">Architecture</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/frameworks">Frameworks</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/java">Java</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/marketing">Marketing</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/personal">Personal</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/podcast-review">Podcast review</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.alexgama.io/about">About</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.alexgama.io/blog">Post</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.alexgama.io/contact">Contact</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-12 border-top py-4 text-center">
+        | copyright © 2020 <a href="https://themefisher.com">Themefisher</a> All Rights Reserved |
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var indexURL = "https://www.alexgama.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://www.alexgama.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://www.alexgama.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://www.alexgama.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://www.alexgama.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://www.alexgama.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://www.alexgama.io/plugins/search/mark.js"></script>
+
+<script src="https://www.alexgama.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://www.alexgama.io/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-166458317-1', 'auto');
+  ga('send', 'pageview');
+</script></body>
+</html>

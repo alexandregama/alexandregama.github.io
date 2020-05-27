@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Alex Gama | Personal blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 May 2020 18:07:47 +0600</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2020 20:00:47 +0600</lastBuildDate>
     
 	<atom:link href="https://www.alexgama.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Beginners Tutorial</title>
+      <link>https://www.alexgama.io/tags/beginners-tutorial/</link>
+      <pubDate>Wed, 27 May 2020 20:00:47 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/tags/beginners-tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CDI Series</title>
+      <link>https://www.alexgama.io/tags/cdi-series/</link>
+      <pubDate>Wed, 27 May 2020 20:00:47 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/tags/cdi-series/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>SEO</title>
