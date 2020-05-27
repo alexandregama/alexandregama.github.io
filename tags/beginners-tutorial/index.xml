@@ -32,16 +32,6 @@ This post is coming this week, I promise 😅</description>
     </item>
     
     <item>
-      <title>CDI in Java - Part 3 - Dependency Injection and Alternatives</title>
-      <link>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-6-dependency-injection-alternatives/</link>
-      <pubDate>Wed, 27 May 2020 20:00:47 +0600</pubDate>
-      
-      <guid>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-6-dependency-injection-alternatives/</guid>
-      <description>Hey!
-This post is coming this week, I promise 😅</description>
-    </item>
-    
-    <item>
       <title>CDI in Java - Part 3 - Events and Observers</title>
       <link>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-3-events-and-observers/</link>
       <pubDate>Wed, 27 May 2020 20:00:47 +0600</pubDate>
@@ -67,6 +57,16 @@ This post is coming this week, I promise 😅</description>
       <pubDate>Wed, 27 May 2020 20:00:47 +0600</pubDate>
       
       <guid>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-5-interceptors/</guid>
+      <description>Hey!
+This post is coming this week, I promise 😅</description>
+    </item>
+    
+    <item>
+      <title>CDI in Java - Part 6 - Dependency Injection and Alternatives</title>
+      <link>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-6-dependency-injection-alternatives/</link>
+      <pubDate>Wed, 27 May 2020 20:00:47 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-6-dependency-injection-alternatives/</guid>
       <description>Hey!
 This post is coming this week, I promise 😅</description>
     </item>

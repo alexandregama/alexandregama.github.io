@@ -28,11 +28,6 @@
   </url>
   
   <url>
-    <loc>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-6-dependency-injection-alternatives/</loc>
-    <lastmod>2020-05-27T20:00:47+06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-3-events-and-observers/</loc>
     <lastmod>2020-05-27T20:00:47+06:00</lastmod>
   </url>
@@ -44,6 +39,11 @@
   
   <url>
     <loc>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-5-interceptors/</loc>
+    <lastmod>2020-05-27T20:00:47+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-6-dependency-injection-alternatives/</loc>
     <lastmod>2020-05-27T20:00:47+06:00</lastmod>
   </url>
   
