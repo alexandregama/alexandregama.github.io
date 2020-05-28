@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="coming soon :)">
+  <meta name="description" content="In this part, we&#39;re going to explore how CDI Qualifier works and how it can help us in Java with Dependency Injection and Polymorphism!">
   <meta name="author" content="Alex Gama">
   <meta name="generator" content="Hugo 0.70.0" />
 
@@ -122,7 +122,7 @@
         <a href="/categories/java"
           class="text-primary">Java</a>
         
-        <h2>CDI in Java - Part 2 - Qualifiers</h2>
+        <h2>CDI in Java - Part 2 - Polymorphism with CDI Qualifiers</h2>
         <div class="mb-3 post-meta">
           <span>By Alex Gama</span>
           
@@ -131,12 +131,367 @@
           
         </div>
         
-        <img src="https://www.alexgama.io/images/post/java/cdi-series/cdi-in-java-series-part-2-qualifiers.png" class="img-fluid w-100 mb-4" alt="CDI in Java - Part 2 - Qualifiers">
+        <img src="https://www.alexgama.io/images/post/java/cdi-series/cdi-in-java-series-part-2-qualifiers.png" class="img-fluid w-100 mb-4" alt="CDI in Java - Part 2 - Polymorphism with CDI Qualifiers">
         
         <div class="content mb-5">
-          <p>Hey!</p>
-<p>This post is coming this week, I promise 😅</p>
-<p>Just join my newsletter to receive all updates :)</p>
+          <p>Hello!</p>
+<p>This is <strong>Part 2</strong> of the long <a href="https://www.alexgama.io/tags/cdi-series/">CDI Series in Java</a> that contains:</p>
+<ul>
+<li><a href="https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-1-creating-a-factory-using-produces-annotation/">Part 1</a>: Factory in CDI with the @Produces annotation</li>
+<li>Part 2: Polymorphism with CDI Qualifiers</li>
+<li><a href="https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-3-events-and-observers">Part 3</a>: Events and Observers in CDI</li>
+<li><a href="https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-4-lazy-initialization">Part 4</a>: CDI and Lazy Initialization</li>
+<li><a href="https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-5-interceptors">Part 5</a>: Interceptors in CDI</li>
+<li><a href="https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-6-dependency-injection-alternatives">Part 6</a>: CDI Dependency Injection and Alternatives</li>
+<li><a href="https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-7-decorators">Part 7</a>: Working with CDI Decorators</li>
+</ul>
+<p>In this part, we&rsquo;re going to explore how <strong>CDI Qualifier</strong> works and how it can help us in Java with <strong>Dependency Injection and Polymorphism</strong>!</p>
+<p>We&rsquo;ll use the scenario from the <a href="https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-1-creating-a-factory-using-produces-annotation/">previous part</a>, when we talked about the famous <strong>@Produces</strong> annotation.</p>
+<p>Let&rsquo;s remember that scenario and add a few more steps</p>
+<ul>
+<li><strong>Checkout</strong> class and log on the console when a checkout is finished on our pseudo online store</li>
+<li><strong>SimpleLogger</strong> class that will have the logic to print out a log message</li>
+<li><strong>Logger</strong> object choosing the desired Log mode; Debug, Info, or Warn mode</li>
+</ul>
+<p>Disclaimer: I&rsquo;m not focusing on a good code design. I&rsquo;m just playing around with some code snippets to be easier to understand :)</p>
+<p>Are you ready? Let&rsquo;s get into it</p>
+<h2 id="1-using-cdi-20-in-a-standalone-mode">#<strong>1: Using CDI 2.0 in a Standalone Mode</strong></h2>
+<p>It&rsquo;s a good time to review the code from the previous part of this series, which runs CDI in a standalone mode. it&rsquo;s nice and easier for our journey</p>
+<p>First of all, let&rsquo;s create the <strong>MainApplication</strong> class that will start the <strong>CDI Container</strong>.</p>
+<p>Just a reminder, in the following code we&rsquo;re using CDI 2.0, but <strong>Qualifiers</strong> came out in the version 1.0. Cool</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainApplication</span> <span style="color:#f92672">{</span>
+	
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>CDI<span style="color:#f92672">&lt;</span>object<span style="color:#f92672">&gt;</span> container <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Weld<span style="color:#f92672">().</span><span style="color:#a6e22e">initialize</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+			Checkout checkout <span style="color:#f92672">=</span> container<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">(</span>Checkout<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">).</span><span style="color:#a6e22e">get</span><span style="color:#f92672">();</span>
+			
+			checkout<span style="color:#f92672">.</span><span style="color:#a6e22e">finishCheckout</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+	
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Of course, this code doesn&rsquo;t compile since we don&rsquo;t have the <strong>Checkout</strong> class yet.</p>
+<h2 id="2-creating-the-checkout-class">#<strong>2: Creating the Checkout Class</strong></h2>
+<p>Let&rsquo;s create the <strong>Checkout</strong> class, which uses the <strong>SimpleLogger</strong> classes:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Checkout</span> <span style="color:#f92672">{</span>
+	
+	<span style="color:#a6e22e">@Inject</span>
+	<span style="color:#66d9ef">private</span> SimpleLogger logger<span style="color:#f92672">;</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">finishCheckout</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		logger<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Finishing Checkout&#34;</span><span style="color:#f92672">);</span> <span style="color:#75715e">// our really advanced logger 😅
+</span><span style="color:#75715e"></span>	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>That code doesn&rsquo;t compile either. It&rsquo;s time to create the <strong>SimpleLogger</strong> class.</p>
+<h2 id="3-creating-the-simplelogger-class">#<strong>3: Creating the SimpleLogger Class</strong></h2>
+<p>This class will just log a message based on a configuration mode.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SimpleLogger</span> <span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">private</span> LogConfiguration configuration<span style="color:#f92672">;</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">SimpleLogger</span><span style="color:#f92672">(</span>LogConfiguration configuration<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">configuration</span> <span style="color:#f92672">=</span> configuration<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">log</span><span style="color:#f92672">(</span>String message<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>configuration<span style="color:#f92672">.</span><span style="color:#a6e22e">isInDebugMode</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+		  System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DEBUG LOG: &#34;</span> <span style="color:#f92672">+</span> message<span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>configuration<span style="color:#f92672">.</span><span style="color:#a6e22e">isInInfoMode</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DEBUG LOG: &#34;</span> <span style="color:#f92672">+</span> message<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DEFAULT LOG: &#34;</span> <span style="color:#f92672">+</span> message<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>As you can see, we have the class <strong>LogConfiguration,</strong> which configures the <strong>mode</strong> to be used when printing out a log message.</p>
+<h2 id="4-creating-the-logconfiguration-class">#<strong>4: Creating the LogConfiguration class</strong></h2>
+<p>This class will contain 3 modes to be passed to the <strong>SimpleLogger</strong> class:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LogConfiguration</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> infoMode<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> debugMode<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> warnMode<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">LogConfiguration</span><span style="color:#f92672">(</span><span style="color:#66d9ef">boolean</span> infoMode<span style="color:#f92672">,</span> <span style="color:#66d9ef">boolean</span> debugMode<span style="color:#f92672">,</span> <span style="color:#66d9ef">boolean</span> warnMode<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">infoMode</span> <span style="color:#f92672">=</span> infoMode<span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">debugMode</span> <span style="color:#f92672">=</span> debugMode<span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">warnMode</span> <span style="color:#f92672">=</span> warnMode<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isInInfoMode</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> infoMode<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isInDebugMode</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> debugMode<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isInWarnMode</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> warnMode<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Notice that the <strong>SimpleLogger</strong> class should have a <strong>LogConfiguration</strong> object built.</p>
+<p>In this case, we should create a <strong>Factory</strong> to teach CDI how to create a <strong>SimpleLogger</strong> object.</p>
+<p>Let&rsquo;s move on and create the factory!</p>
+<h2 id="5-factory-with-produces-in-cdi">#<strong>5: Factory With @Produces in CDI</strong></h2>
+<p>We&rsquo;re going to use the <strong>@Produces</strong> annotation to create a Factory to build a <strong>SimpleLogger</strong> object.</p>
+<p>This object will be built with the boolean <strong>debugMode</strong> as <strong>true</strong> to indicate that a message should be printed out in the <strong>debug</strong> mode.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SimpleLoggerFactory</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Produces</span>
+    <span style="color:#66d9ef">public</span> SimpleLogger <span style="color:#a6e22e">createLogger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      LogConfiguration logInDebugMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LogConfiguration<span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">);</span> <span style="color:#75715e">// I know, taking 3 booleans as parameters...🙄
+</span><span style="color:#75715e"></span>
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> SimpleLogger<span style="color:#f92672">(</span>logInDebugMode<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Great! So far we&rsquo;ve just taken a quick overview from the <a href="https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-1-creating-a-factory-using-produces-annotation/">previous post</a>.</p>
+<h2 id="6-more-logger-modes">#<strong>6: More Logger Modes</strong></h2>
+<p>As you may notice, so far, we have just <strong>1</strong> mode to work with Logger, the <strong>Debug</strong> mode!</p>
+<p>But we&rsquo;d like to use another Logger mode, for example, <strong>Info mode</strong>. How can we do that?</p>
+<p>The first and simplest way to solve this: Create another method in the Factory, which creates a Logger object that uses the <strong>Info mode</strong></p>
+<p>Let&rsquo;s explore this solution!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SimpleLoggerFactory</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Produces</span>
+    <span style="color:#66d9ef">public</span> SimpleLogger <span style="color:#a6e22e">createDebugLogger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> <span style="color:#75715e">// yes, I renamed it
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">boolean</span> debugMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span> <span style="color:#75715e">// just to be clear that the debug mode is on
+</span><span style="color:#75715e"></span>
+      LogConfiguration logInDebugMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LogConfiguration<span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> debugMode<span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> SimpleLogger<span style="color:#f92672">(</span>logInDebugMode<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Produces</span>
+    <span style="color:#66d9ef">public</span> SimpleLogger <span style="color:#a6e22e">createInfoLogger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> <span style="color:#75715e">//new method here :)
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">boolean</span> infoMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+
+      LogConfiguration logInInfoMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LogConfiguration<span style="color:#f92672">(</span>infoMode<span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> SimpleLogger<span style="color:#f92672">(</span>logInInfoMode<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Yes, we renamed the previous method just to be clearer that a Debug Logger will be created and, besides that, we&rsquo;ve created a new method called <strong>createInfoLogger()</strong>.</p>
+<p>Notice that both methods are using the <strong>@Produces</strong> annotation and, yes, CDI allows us to have many methods annotated with <strong>@Produces</strong> annotation in the same class.</p>
+<p>Let&rsquo;s run the code?</p>
+<pre><code>WELD-001409: Ambiguous dependencies for type SimpleLogger with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.craftcoder.cdi.qualifiers.Checkout.logger
+  at com.craftcoder.cdi.qualifiers.Checkout.logger(Checkout.java:0)
+  Possible dependencies: 
+  - Producer Method [SimpleLogger] with qualifiers [@Any @Default] declared as [[BackedAnnotatedMethod] @Produces public com.hackingcode.cdi.qualifiers.SimpleLoggerFactory.createInfoLogger()],
+  - Producer Method [SimpleLogger] with qualifiers [@Any @Default] declared as [[BackedAnnotatedMethod] @Produces public com.hackingcode.cdi.qualifiers.SimpleLoggerFactory.createDebugLogger()]
+</code></pre><p>Nice, an exception has thrown on our faces! What happened?</p>
+<p>When CDI tries to inject a <strong>SimpleLogger</strong> object based on the Factory:</p>
+<blockquote>
+<p>CDI doesn&rsquo;t understand and can&rsquo;t choose which method should be used when the SimpleLogger object is needed.</p>
+</blockquote>
+<p>CDI will angrily say:</p>
+<blockquote>
+<p>Hey, I have 2 methods that create the object that you are interested in. You should teach me which one I should pick up.</p>
+</blockquote>
+<p>And that really makes sense. CDI doesn&rsquo;t have the ability to understand your desire when you&rsquo;re injecting a dependency if you have more than 2 objects to be returned.</p>
+<p>Let&rsquo;s teach CDI how to pick up the desired Logger to be injected.</p>
+<h2 id="7-polymorphism-with-qualifiers">#<strong>7: Polymorphism With @Qualifiers</strong></h2>
+<p>There is a brilliant annotation called <strong>@Qualifiers</strong> since the version 1.0.</p>
+<p>With this annotation, we can teach CDI which method should be used and CDI tries to create the correct object for us.</p>
+<p>First of all, we need to <strong>mark</strong> our <strong>createDebugLogger()</strong> method, indicating that this method will use the <strong>Debug mode</strong>.</p>
+<p>How can we mark classes or methods in Java? Using annotations! So, let&rsquo;s create our own annotation 😈</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Target</span><span style="color:#f92672">({</span>ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">METHOD</span><span style="color:#f92672">,</span> ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">FIELD</span><span style="color:#f92672">})</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> DebugMode <span style="color:#f92672">{</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Easy, right?</p>
+<p>Notice that the <strong>ElementType</strong> on the annotation indicates where this annotation should be used. In our case, this will be used on methods and fields.</p>
+<p>We&rsquo;ve created the <strong>DebugMode</strong> annotation and we will mark the method <strong>createDebugLogger()</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SimpleLoggerFactory</span> <span style="color:#f92672">{</span>
+
+	<span style="color:#a6e22e">@Produces</span> <span style="color:#a6e22e">@DebugMode</span>
+	<span style="color:#66d9ef">public</span> SimpleLogger <span style="color:#a6e22e">createDebugLogger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">boolean</span> debugMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+		
+		LogConfiguration logInDebugMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LogConfiguration<span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> debugMode<span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+		
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> SimpleLogger<span style="color:#f92672">(</span>logInDebugMode<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>   
+	<span style="color:#75715e">//another method here..
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><p>It&rsquo;s time to CDI be aware of that new annotation by using the <strong>@Qualifier</strong> annotation:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Qualifier</span>
+<span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Target</span><span style="color:#f92672">(</span>ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">METHOD</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> DebugMode <span style="color:#f92672">{</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><blockquote>
+<p>Now CDI knows that the DebugMode annotation is a qualified annotation and will be used to filter which method should be used when a new Logger is requested.</p>
+</blockquote>
+<p>Let&rsquo;s run it?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">INFO: WELD<span style="color:#f92672">-</span>ENV<span style="color:#f92672">-</span>002003<span style="color:#f92672">:</span> Weld SE container STATIC_INSTANCE initialized
+INFO LOG<span style="color:#f92672">:</span> Finishing Checkout
+Feb 15<span style="color:#f92672">,</span> 2017 8<span style="color:#f92672">:</span>09<span style="color:#f92672">:</span>57 AM org<span style="color:#f92672">.</span><span style="color:#a6e22e">jboss</span><span style="color:#f92672">.</span><span style="color:#a6e22e">weld</span><span style="color:#f92672">.</span><span style="color:#a6e22e">environment</span><span style="color:#f92672">.</span><span style="color:#a6e22e">se</span><span style="color:#f92672">.</span><span style="color:#a6e22e">WeldContainer</span> shutdown
+INFO: WELD<span style="color:#f92672">-</span>ENV<span style="color:#f92672">-</span>002001<span style="color:#f92672">:</span> Weld SE container STATIC_INSTANCE shut down
+</code></pre></div><p>Is everything working properly?</p>
+<p>Not so fast! As you can see, we are printing out the <strong>INFO LOG</strong>, right? But we&rsquo;d like to print out the <strong>DEBUG LOG</strong>.</p>
+<p>Yes, CDI requires us to specify <strong>explicitly</strong> which Qualifier should be used. If you <strong>don&rsquo;t pass any Qualifier</strong>, CDI will use its <strong>default</strong> Qualifier, called&hellip;<strong>@Default</strong>!</p>
+<p>Behind the curtains, the method <strong>createInfoLogger()</strong> uses a <strong>@Default</strong> qualifier annotation:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SimpleLoggerFactory</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Produces</span> <span style="color:#a6e22e">@Default</span> <span style="color:#75715e">// yes, it is here by default, however you dont&#39;t need to use it explicitly!
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> SimpleLogger <span style="color:#a6e22e">createInfoLogger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">boolean</span> infoMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+
+      LogConfiguration logInInfoMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LogConfiguration<span style="color:#f92672">(</span>infoMode<span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> SimpleLogger<span style="color:#f92672">(</span>logInInfoMode<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>And notice that CDI will configure the <strong>@Default</strong> Qualifier on the <strong>injection point</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Checkout</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Inject</span> <span style="color:#a6e22e">@Default</span> <span style="color:#75715e">// it&#39;s here again!
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> SimpleLogger logger<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">finishCheckout</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      logger<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Finishing Checkout&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>So, keep in mind that we always have the <strong>@Default</strong> annotation when we don&rsquo;t specify a CDI Qualifier.</p>
+<h2 id="8-choosing-another-qualifier-in-the-injection-point">#<strong>8: Choosing Another Qualifier in the Injection Point</strong></h2>
+<p>Now it&rsquo;s easy to choose the Debug Mode on the Injection Point:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Checkout</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Inject</span> <span style="color:#a6e22e">@DebugMode</span> <span style="color:#75715e">// debug mode now
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> SimpleLogger logger<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">finishCheckout</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      logger<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Finishing Checkout&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Let&rsquo;s run it again!</p>
+<pre><code>INFO: WELD-ENV-002003: Weld SE container STATIC_INSTANCE initialized
+DEBUG LOG: Finishing Checkout
+Feb 15, 2017 8:26:41 AM org.jboss.weld.environment.se.WeldContainer shutdown
+INFO: WELD-ENV-002001: Weld SE container STATIC_INSTANCE shut down
+</code></pre><p>Now everything is working perfectly!</p>
+<h2 id="9-creating-more-log-modes-using-qualifiers">#<strong>9: Creating More Log Modes using Qualifiers</strong></h2>
+<p>It&rsquo;s worth mentioning that:</p>
+<blockquote>
+<p>Qualifiers bring to us the ability to use polymorphism at the Injection Point</p>
+</blockquote>
+<p>So, it&rsquo;s time to create a new Qualifier to the <strong>INFO</strong> and <strong>WARN</strong> modes to get the benefits from Polymorphism and CDI:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Qualifier</span>
+<span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Target</span><span style="color:#f92672">({</span>ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">METHOD</span><span style="color:#f92672">,</span> ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">FIELD</span><span style="color:#f92672">})</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> InfoMode <span style="color:#f92672">{</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Qualifier</span>
+<span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Target</span><span style="color:#f92672">({</span>ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">METHOD</span><span style="color:#f92672">,</span> ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">FIELD</span><span style="color:#f92672">})</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> WarnMode <span style="color:#f92672">{</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>And the entirely <strong>SimpleLoggerFactory</strong> class should be as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SimpleLoggerFactory</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Produces</span> <span style="color:#a6e22e">@DebugMode</span>
+    <span style="color:#66d9ef">public</span> SimpleLogger <span style="color:#a6e22e">createDebugLogger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">boolean</span> debugMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+
+      LogConfiguration logInDebugMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LogConfiguration<span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> debugMode<span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> SimpleLogger<span style="color:#f92672">(</span>logInDebugMode<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Produces</span> <span style="color:#a6e22e">@InfoMode</span>
+    <span style="color:#66d9ef">public</span> SimpleLogger <span style="color:#a6e22e">createInfoLogger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">boolean</span> infoMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+
+      LogConfiguration logInInfoMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LogConfiguration<span style="color:#f92672">(</span>infoMode<span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> SimpleLogger<span style="color:#f92672">(</span>logInInfoMode<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Produces</span> <span style="color:#a6e22e">@WarnMode</span>
+    <span style="color:#66d9ef">public</span> SimpleLogger <span style="color:#a6e22e">createWarnLogger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">boolean</span> warnMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+
+      LogConfiguration logInWarnMode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LogConfiguration<span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> warnMode<span style="color:#f92672">);</span>
+
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> SimpleLogger<span style="color:#f92672">(</span>logInWarnMode<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Using the <strong>WARN</strong> mode:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Inject</span> <span style="color:#a6e22e">@WarnMode</span>
+<span style="color:#66d9ef">private</span> SimpleLogger logger<span style="color:#f92672">;</span>
+</code></pre></div><p>If you run the code again, the message will be printed out using <strong>WARN</strong> mode!</p>
+<h2 id="10-qualifiers-with-arguments">#<strong>10: @Qualifiers With Arguments</strong></h2>
+<p>We&rsquo;ve created <strong>3</strong> Log modes so far. But what would be your life if we needed <strong>5</strong> more modes?</p>
+<p>Creating 5 more annotations doesn&rsquo;t sound like a good idea.</p>
+<p>It&rsquo;s time to <strong>refactor</strong> our code by using Qualifiers with <strong>arguments</strong> to have less code being written.</p>
+<p>Yes, Qualifiers accept arguments in their annotations!</p>
+<p>We&rsquo;ll create a new annotation called <strong>@LoggerMode</strong>, a more generic annotation:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Qualifier</span>
+<span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Target</span><span style="color:#f92672">({</span>ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">METHOD</span><span style="color:#f92672">,</span> ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">FIELD</span><span style="color:#f92672">})</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> LoggerMode <span style="color:#f92672">{</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>We can use an <strong>Enum</strong> to indicate which mode we would like to use in the annotation:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">enum</span> Mode <span style="color:#f92672">{</span>
+
+    DEBUG<span style="color:#f92672">,</span> INFO<span style="color:#f92672">,</span> WARN
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>The complete Qualifier code will be:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Qualifier</span>
+<span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Target</span><span style="color:#f92672">({</span>ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">METHOD</span><span style="color:#f92672">,</span> ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">FIELD</span><span style="color:#f92672">})</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> LoggerMode <span style="color:#f92672">{</span>
+
+  Mode <span style="color:#a6e22e">desiredMode</span><span style="color:#f92672">();</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Pretty cool! We just need to change the methods on the <strong>Factory</strong> class to use the new annotation with the <strong>desiredMode</strong> option configured:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SimpleLoggerFactory</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Produces</span> <span style="color:#a6e22e">@LoggerMode</span><span style="color:#f92672">(</span>desiredMode <span style="color:#f92672">=</span> Mode<span style="color:#f92672">.</span><span style="color:#a6e22e">DEBUG</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> SimpleLogger <span style="color:#a6e22e">createDebugLogger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> 
+      <span style="color:#f92672">...</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Produces</span> <span style="color:#a6e22e">@LoggerMode</span><span style="color:#f92672">(</span>desiredMode <span style="color:#f92672">=</span> Mode<span style="color:#f92672">.</span><span style="color:#a6e22e">INFO</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> SimpleLogger <span style="color:#a6e22e">createInfoLogger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> 
+      <span style="color:#f92672">...</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Produces</span> <span style="color:#a6e22e">@LoggerMode</span><span style="color:#f92672">(</span>desiredMode <span style="color:#f92672">=</span> Mode<span style="color:#f92672">.</span><span style="color:#a6e22e">WARN</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> SimpleLogger <span style="color:#a6e22e">createWarnLogger</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      <span style="color:#f92672">...</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now we can remove all the 3 annotations and end up by having only 1, the <strong>@LoggerMode</strong> annotation!</p>
+<p>If we have <strong>5</strong> more Log Modes to be created, don&rsquo;t worry, you can create 5 more types on your Enum! Brilliant!</p>
+<p>That&rsquo;s it! I hope you&rsquo;ve learned 1 thing or 2 and thanks for stopping by, really appreciate :)</p>
+<p>See you on the next <a href="https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-3-events-and-observers/">Part 3 - Observing Events</a></p>
+<p>Let&rsquo;s keep in touch and don&rsquo;t forget to signup for my weekly newsletter 🙂</p>
+<p><a href="https://twitter.com/_alex_gama/">Twitter</a>
+<a href="https://www.youtube.com/channel/UCn09BXJXOCPLARsqNvxEFuw?view_as=subscriber/">Youtube</a>
+<a href="https://www.instagram.com/_alex_gama">Instagram</a>
+<a href="https://www.linkedin.com/in/alexandregama/">Linkedin</a></p>
 
         </div>
 
