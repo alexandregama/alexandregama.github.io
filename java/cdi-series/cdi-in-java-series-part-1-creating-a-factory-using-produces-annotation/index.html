@@ -157,8 +157,8 @@
 <li>Create a <strong>Logger</strong> class to keep this log on its own class. The famous cohesion.</li>
 <li>Customize this <strong>Logger</strong> to receive a <strong>Configuration,</strong> which indicates which <strong>Log Mode</strong> should be used</li>
 </ul>
-<p>Pretty simple, isn&rsquo;t? Let&rsquo;s jump crazily into code!</p>
-<h3 id="1-creating-the-main-class-in-cdi-20">#1: Creating the Main Class in CDI 2.0</h3>
+<p>Pretty simple, isn&rsquo;t it? Let&rsquo;s jump crazily into code!</p>
+<h3 id="1-creating-the-main-class-in-cdi-20">#1: Creating the Main class in CDI 2.0</h3>
 <p>Before creating the main class to execute our CDI code, let&rsquo;s create the important Checkout class:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Checkout</span> <span style="color:#f92672">{</span>
   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">finishCheckout</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
@@ -180,7 +180,7 @@
    <span style="color:#f92672">}</span>
 
 <span style="color:#f92672">}</span>
-</code></pre></div><p>Pretty easy, isn&rsquo;t? Notice the following code:</p>
+</code></pre></div><p>Pretty easy, isn&rsquo;t it? Notice the following code:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Checkout checkout <span style="color:#f92672">=</span> container<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">(</span>Checkout<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">).</span><span style="color:#a6e22e">get</span><span style="color:#f92672">();</span>
 </code></pre></div><p>That code is the same as the following, which is injecting a Checkout object using the remarkable <strong>@Inject</strong> annotation:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Inject</span> 
@@ -191,7 +191,7 @@
 Weld SE container STATIC_INSTANCE initialized Finishing Checkout
 </code></pre><p>Great! Everything is up and running!</p>
 <h3 id="2-creating-a-specialized-class-for-logger">#2: Creating a Specialized Class for Logger</h3>
-<p>Logging is something important for us. To have a good cohesion, let&rsquo;s create a class that is responsible for logging messages.</p>
+<p>Logging is something important for us. To have good cohesion, let&rsquo;s create a class that is responsible for logging messages.</p>
 <p>This class will be called <strong>SpecialLogger</strong>, as you can see below:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpecialLogger</span> <span style="color:#f92672">{</span>
 
@@ -268,7 +268,7 @@ Unsatisfied dependencies for type SpecialLogger with qualifiers @Default
  at injection point [BackedAnnotatedField] 
  @Inject 
  private com.hackingcode.cdi.produces.Checkout.logger
-</code></pre><p>Yes, an exception will be thrown on our face. And that makes sense. CDI does not know how to inject the <strong>SpecialLogger</strong> object yet.</p>
+</code></pre><p>Yes, an exception will be thrown on our faces. And that makes sense. CDI does not know how to inject the <strong>SpecialLogger</strong> object yet.</p>
 <p>CDI, behind the scenes, will execute the following steps:</p>
 <ul>
 <li>Hey, I can see that you need a <strong>SpecialLogger</strong> object here. That&rsquo;s ok for me. I&rsquo;ll try to find this class around your classpath</li>
@@ -307,7 +307,7 @@ Unsatisfied dependencies for type SpecialLogger with qualifiers @Default
 </blockquote>
 <p>Of course, the returned object of the method <strong>createLogger()</strong> must be the same type that you&rsquo;re interested in, in this case, the <strong>SpecialLogger</strong>. Generics for an upcoming post 😏.</p>
 <p>That&rsquo;s it! I really hope that this article could be helpful to you!</p>
-<p>In the <a href="https://www.alexgama.io/cdi-in-java-series-part-2-qualifiers">next part</a> we&rsquo;re going to be hacking some code with <a href="https://www.alexgama.io/cdi-in-java-series-part-2-qualifiers">CDI and Qualifiers</a></p>
+<p>In the <a href="https://www.alexgama.io/cdi-in-java-series-part-2-qualifiers">next part,</a> we&rsquo;re going to be hacking some code with <a href="https://www.alexgama.io/cdi-in-java-series-part-2-qualifiers">CDI and Qualifiers</a></p>
 <p>See you on <a href="https://twitter.com/_alex_gama/">Twitter</a> for more updates :)</p>
 <p>Let&rsquo;s keep in touch and don&rsquo;t forget to signup for my weekly newsletter 🙂</p>
 <p><a href="https://twitter.com/_alex_gama/">Twitter</a>
