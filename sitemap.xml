@@ -4,26 +4,41 @@
   
   <url>
     <loc>https://www.alexgama.io/</loc>
-    <lastmod>2020-05-27T20:00:47+06:00</lastmod>
+    <lastmod>2020-05-28T20:00:47+06:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.alexgama.io/tags/beginners-tutorial/</loc>
-    <lastmod>2020-05-27T20:00:47+06:00</lastmod>
+    <lastmod>2020-05-28T20:00:47+06:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.alexgama.io/categories/</loc>
-    <lastmod>2020-05-27T20:00:47+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-1-creating-a-factory-using-produces-annotation/</loc>
-    <lastmod>2020-05-27T20:00:47+06:00</lastmod>
+    <lastmod>2020-05-28T20:00:47+06:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-2-qualifiers/</loc>
+    <lastmod>2020-05-28T20:00:47+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/tags/cdi-series/</loc>
+    <lastmod>2020-05-28T20:00:47+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/categories/java/</loc>
+    <lastmod>2020-05-28T20:00:47+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/tags/</loc>
+    <lastmod>2020-05-28T20:00:47+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-1-creating-a-factory-using-produces-annotation/</loc>
     <lastmod>2020-05-27T20:00:47+06:00</lastmod>
   </url>
   
@@ -49,21 +64,6 @@
   
   <url>
     <loc>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-7-decorators/</loc>
-    <lastmod>2020-05-27T20:00:47+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/tags/cdi-series/</loc>
-    <lastmod>2020-05-27T20:00:47+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/categories/java/</loc>
-    <lastmod>2020-05-27T20:00:47+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/tags/</loc>
     <lastmod>2020-05-27T20:00:47+06:00</lastmod>
   </url>
   

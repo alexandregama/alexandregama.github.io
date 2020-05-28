@@ -6,10 +6,20 @@
     <description>Recent content in Java on Alex Gama | Personal blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 May 2020 20:00:47 +0600</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2020 20:00:47 +0600</lastBuildDate>
     
 	<atom:link href="https://www.alexgama.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CDI in Java - Part 2 - Polymorphism with CDI Qualifiers</title>
+      <link>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-2-qualifiers/</link>
+      <pubDate>Thu, 28 May 2020 20:00:47 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-2-qualifiers/</guid>
+      <description>Hello!
+This is Part 2 of the long CDI Series in Java that contains:</description>
+    </item>
     
     <item>
       <title>CDI in Java - Part 1 - Creating a Factory with @Produces Annotation</title>
@@ -19,16 +29,6 @@
       <guid>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-1-creating-a-factory-using-produces-annotation/</guid>
       <description>Hey friend!
 This is Part 1 of the CDI Series in Java that contains:</description>
-    </item>
-    
-    <item>
-      <title>CDI in Java - Part 2 - Polymorphism with CDI Qualifiers</title>
-      <link>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-2-qualifiers/</link>
-      <pubDate>Wed, 27 May 2020 20:00:47 +0600</pubDate>
-      
-      <guid>https://www.alexgama.io/java/cdi-series/cdi-in-java-series-part-2-qualifiers/</guid>
-      <description>Hello!
-This is Part 2 of the long CDI Series in Java that contains:</description>
     </item>
     
     <item>
