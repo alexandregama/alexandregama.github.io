@@ -3,17 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.alexgama.io/</loc>
-    <lastmod>2020-05-28T20:00:47+06:00</lastmod>
+    <loc>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/intro/</loc>
+    <lastmod>2020-06-04T13:49:23+06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.alexgama.io/tags/beginners-tutorial/</loc>
-    <lastmod>2020-05-28T20:00:47+06:00</lastmod>
+    <loc>https://www.alexgama.io/tags/30dayscoding/</loc>
+    <lastmod>2020-06-04T13:49:23+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/</loc>
+    <lastmod>2020-06-04T13:49:23+06:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.alexgama.io/categories/</loc>
+    <lastmod>2020-06-04T13:49:23+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/ruby/</loc>
+    <lastmod>2020-06-04T13:49:23+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/categories/ruby/</loc>
+    <lastmod>2020-06-04T13:49:23+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/tags/ruby-series/</loc>
+    <lastmod>2020-06-04T13:49:23+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/tags/</loc>
+    <lastmod>2020-06-04T13:49:23+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/tags/beginners-tutorial/</loc>
     <lastmod>2020-05-28T20:00:47+06:00</lastmod>
   </url>
   
@@ -29,11 +59,6 @@
   
   <url>
     <loc>https://www.alexgama.io/categories/java/</loc>
-    <lastmod>2020-05-28T20:00:47+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alexgama.io/tags/</loc>
     <lastmod>2020-05-28T20:00:47+06:00</lastmod>
   </url>
   
@@ -209,6 +234,11 @@
   
   <url>
     <loc>https://www.alexgama.io/reviews/podcast/</loc>
+    <lastmod>2019-10-29T13:49:23+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/</loc>
     <lastmod>2019-10-29T13:49:23+06:00</lastmod>
   </url>
   

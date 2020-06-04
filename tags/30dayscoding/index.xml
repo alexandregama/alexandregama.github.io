@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>30daysCoding on Alex Gama | Personal blog</title>
+    <link>https://www.alexgama.io/tags/30dayscoding/</link>
+    <description>Recent content in 30daysCoding on Alex Gama | Personal blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Jun 2020 13:49:23 +0600</lastBuildDate>
+    
+	<atom:link href="https://www.alexgama.io/tags/30dayscoding/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>30 Ruby Coding Challenges in 30 Days - Intro</title>
+      <link>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/intro/</link>
+      <pubDate>Thu, 04 Jun 2020 13:49:23 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/intro/</guid>
+      <description>Hey friend!
+We&amp;rsquo;re going to have some fun by solving 30 Coding Challenges using Ruby for:</description>
+    </item>
+    
+  </channel>
+</rss>
