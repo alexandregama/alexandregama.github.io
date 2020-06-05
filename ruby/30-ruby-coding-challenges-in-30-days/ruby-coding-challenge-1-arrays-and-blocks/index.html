@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>Alex Gama | Personal blog</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="We&#39;re going to have some fun by solving 30 Ruby Coding Challenges in 30 Days for folks who are just getting started and folks who just want to have fun in preparing themselves for coding interviews">
+  <meta name="author" content="Alex Gama">
+  <meta name="generator" content="Hugo 0.70.0" />
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://www.alexgama.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://www.alexgama.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://www.alexgama.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://www.alexgama.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://www.alexgama.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://www.alexgama.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://www.alexgama.io/images/favicon.png " type="image/x-icon">
+
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom">
+      <a class="navbar-brand mobile-view" href="https://www.alexgama.io/"><img class="img-fluid"
+          src="https://www.alexgama.io/images/alex-gama-logo.png" alt="Alex Gama | Personal blog"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.youtube.com/channel/UCn09BXJXOCPLARsqNvxEFuw"><i class="ti-youtube"></i></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/_alex_gama"><i class="ti-twitter-alt"></i></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.instagram.com/_alex_gama"><i class="ti-instagram"></i></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/alexandregama"><i class="ti-github"></i></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/in/alexandregama/"><i class="ti-linkedin"></i></a>
+            </li>
+            
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://www.alexgama.io/"><img class="img-fluid"
+            src="https://www.alexgama.io/images/alex-gama-logo.png" alt="Alex Gama | Personal blog"></a>
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.alexgama.io/"> Home </a>
+          </li>
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.alexgama.io/about">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.alexgama.io/blog">Post</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search px-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://www.alexgama.io//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        
+        <a href="/categories/ruby"
+          class="text-primary">Ruby</a>
+        
+        <h2>Day 1 of 30 - Ruby Coding Challenge - Arrays and Blocks</h2>
+        <div class="mb-3 post-meta">
+          <span>By Alex Gama</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>04 June 2020</span>
+          
+        </div>
+        
+        <img src="https://www.alexgama.io/images/post/ruby/ruby-series/30-Ruby-Coding-Challenges-Thumbnail.png" class="img-fluid w-100 mb-4" alt="Day 1 of 30 - Ruby Coding Challenge - Arrays and Blocks">
+        
+        <div class="content mb-5">
+          <p>Hey friend!</p>
+<p>This is the first Part of this series of <strong><a href="https://www.youtube.com/watch?v=pfaecP3Wbjw">30 Coding Challenges in Ruby</a></strong> for:</p>
+<ul>
+<li>folks who are just getting started</li>
+<li>folks who just want to stretch their brain a little bit</li>
+<li>folks who just want to have fun in preparing themselves for coding interviews</li>
+</ul>
+<p><strong>What about the Ruby environment?</strong></p>
+<ul>
+<li>No excuses, you don&rsquo;t need that</li>
+<li><a href="https://repl.it/languages/ruby">Here is the link for a Ruby Online Compiler</a>, which I&rsquo;m going to share all of the code and you can also play around</li>
+<li>It&rsquo;s all about problem-solving skills and concepts, not about programming languages :)</li>
+</ul>
+<p><strong>The most important goal</strong>: It&rsquo;s all about <strong>having fun</strong> 🕺💃 while solving simple but great <strong>coding challenges</strong>.</p>
+<h2 id="im-the-problem-nice-to-meet-you">I&rsquo;m the Problem, Nice to Meet You</h2>
+<blockquote>
+<p>Given an array of numbers, we want to count how many items are greater than 5</p>
+</blockquote>
+<p>Com&rsquo;on, give us something more difficult and interesting 😒</p>
+<p>I know, I know what you&rsquo;re thinking but this is just to start our journey together 😬</p>
+<p>I&rsquo;m going to break this down into <strong>4 steps</strong>:</p>
+<ul>
+<li>Logic to solve the problem</li>
+<li>Solving with classic for loops</li>
+<li>Organizing our code with methods</li>
+<li>Bonus: Meeting Blocks in Ruby</li>
+</ul>
+<p>Are you ready? Let&rsquo;s get into it : )</p>
+<h2 id="1-logic-to-solve-the-problem">#1 Logic to Solve the Problem</h2>
+<p>Yes, the logic is pretty simple. Again, just to stretch our legs and arms to the run</p>
+<ul>
+<li>Given an array</li>
+<li>Go through all of the numbers</li>
+<li>For each number you compare if the number is greater than 5</li>
+<li>You increment a variable (let&rsquo;s call it <strong>count</strong>)</li>
+<li>You print the variable <strong>count</strong> after going through the array</li>
+</ul>
+<h2 id="2-classic-for-loop-expression">#2 Classic For Loop Expression</h2>
+<p>Again, don&rsquo;t worry about the Ruby syntax. Focus on concepts and logic.</p>
+<p>For the code below we&rsquo;ve created a classic <strong>for loop expression</strong> and for each <strong>item</strong> in the given array, we&rsquo;re checking if the number is greater than 5, just like the previous logic</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">array <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">]</span>
+count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+<span style="color:#66d9ef">for</span> item <span style="color:#66d9ef">in</span> array
+  <span style="color:#66d9ef">if</span> item <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span>
+    count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+puts count  <span style="color:#75715e"># prints out the count value, which is 4. Nice</span>
+</code></pre></div><h2 id="3-organizing-with-a-method">#3 Organizing with a Method</h2>
+<p>Nothing special here. Just organizing the kitcken with a method.</p>
+<p>Notice that we&rsquo;re taking a <strong>number</strong> as an argument, which will be the number used to compare the items in the array</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">how_many_are_greater_than</span>(number, array)
+  count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">for</span> item <span style="color:#66d9ef">in</span> array
+    <span style="color:#66d9ef">if</span> item <span style="color:#f92672">&gt;</span> number
+      count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">return</span> count <span style="color:#75715e"># in Ruby we don&#39;t need to use return btw</span>
+<span style="color:#66d9ef">end</span>
+
+array <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">7</span> , <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">]</span>
+count <span style="color:#f92672">=</span> how_many_are_greater_than(<span style="color:#ae81ff">5</span>, array) <span style="color:#75715e"># a little bit better, isn&#39;t it?</span>
+puts count
+</code></pre></div><p>Pretty simple, right?</p>
+<p>What about doing that in a more Rubyish way? 😏</p>
+<h2 id="4-hipster-time-blocks-in-ruby">#4 Hipster Time: Blocks in Ruby</h2>
+<p>Bonus hipster time.</p>
+<p>Ruby (as many other languages) has its own way to do a few things and that is called <strong>Ruby Way</strong> or <strong>Rubyish Way</strong> to do things</p>
+<p>An array in Ruby provides a method called <strong>count(),</strong> which receives a <strong>block</strong> that can be an <strong>expression to be evaluated</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">array<span style="color:#f92672">.</span>count <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>item<span style="color:#f92672">|</span>
+  item <span style="color:#f92672">&gt;</span> number
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Notice that:</p>
+<ul>
+<li><strong>item</strong>: is just a single item from our array. This <strong>block</strong> <del>magically</del> automatically executes a <strong>for loop</strong> expression</li>
+<li><strong>item &gt; number:</strong> is the expression to be <strong>evaluated</strong> for each <strong>item</strong></li>
+</ul>
+<p>The complete code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">how_many_are_greater_than_rubyish</span>(number, array)
+  array<span style="color:#f92672">.</span>count <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>item<span style="color:#f92672">|</span>
+    item <span style="color:#f92672">&gt;</span> number
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
+array <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">7</span> , <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">]</span>
+count <span style="color:#f92672">=</span> how_many_are_greater_than_rubyish(<span style="color:#ae81ff">5</span>, array)
+puts count
+</code></pre></div><p>But wait. Where is the <strong>count</strong> variable and <strong>how we return it</strong>? Brillant question.</p>
+<p>Ruby <strong>automatically</strong> increments an <strong>internal variable</strong> each time the expression <strong>item &gt; number</strong> is evaluated to <strong>true</strong> and keeps the result in this</p>
+<p>internal variable.</p>
+<p>When the execution is finished, Ruby automatically <strong>returns the result</strong> for us</p>
+<p>Don&rsquo;t believe me? Check the code below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">how_many_are_greater_than_rubyish</span>(number, array)  
+  <span style="color:#66d9ef">return</span> array<span style="color:#f92672">.</span>count <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>item<span style="color:#f92672">|</span>
+    item <span style="color:#f92672">&gt;</span> number
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
+array <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">7</span> , <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">]</span>
+count <span style="color:#f92672">=</span> how_many_are_greater_than_rubyish(<span style="color:#ae81ff">5</span>)
+puts count
+</code></pre></div><p>Now I&rsquo;m explicitly using the <strong>return</strong> keyword, which will behave in the same way, returning the final result after the expression being evaluated for each item in the array.</p>
+<p>This is a more declarative approach than an imperative one, but this is a discussion for an upcoming article.</p>
+<p>Well done, Ruby! <strong>💪</strong></p>
+<p>That&rsquo;s it. Thanks for your visit, really appreciate your time and see you soon :)</p>
+<p>Let&rsquo;s keep in touch and don&rsquo;t forget to signup for my weekly newsletter</p>
+<p><a href="https://twitter.com/_alex_gama/">Twitter</a>
+<a href="https://www.youtube.com/channel/UCn09BXJXOCPLARsqNvxEFuw?view_as=subscriber/">Youtube</a>
+<a href="https://www.instagram.com/_alex_gama">Instagram</a>
+<a href="https://www.linkedin.com/in/alexandregama/">Linkedin</a></p>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">    
+        <h2>Join My Newsletter</h2>
+        <p class="text-light px-md-5 py-4 border-left border-right border-primary">You&rsquo;ll receive coding courses, tutorials and personal posts! I&rsquo;ll be happy to send them to you, weekly :)</p>            
+        <form action="https://alexgama.us18.list-manage.com/subscribe/post?u=ecda2456255e311ef6f1d58d1&amp;id=8130770b0a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="row justify-content-center" target="_blank" novalidate>
+          <div class="input-group col-md-8">
+            <input type="email" value="" name="EMAIL" class="form-control" placeholder="Your email" id="mce-EMAIL">
+
+            <div id="mce-responses" class="clear">
+              <div class="response" id="mce-error-response" style="display:none"></div>
+              <div class="response" id="mce-success-response" style="display:none"></div>
+            </div>    
+
+            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+              <input type="text" name="b_ecda2456255e311ef6f1d58d1_8130770b0a" tabindex="-1" value="">
+            </div>
+              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="input-group-text btn btn-primary">
+          </form>
+          <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+        </div>
+      </div>
+    </div>  
+  </div>    
+</section>
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <a href="https://www.alexgama.io/"><img src="https://www.alexgama.io/images/alex-gama-logo.png" alt="Alex Gama | Personal blog"></a>
+      </div>
+      
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Social Contacts</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.youtube.com/channel/UCn09BXJXOCPLARsqNvxEFuw">youtube</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://twitter.com/_alex_gama">twitter</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.instagram.com/_alex_gama">instagram</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://github.com/alexandregama">github</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.linkedin.com/in/alexandregama/">linkedin</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Categories</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/architecture">Architecture</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/frameworks">Frameworks</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/java">Java</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/marketing">Marketing</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/personal">Personal</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/podcast-review">Podcast review</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/ruby">Ruby</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.alexgama.io/about">About</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.alexgama.io/blog">Post</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.alexgama.io/contact">Contact</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-12 border-top py-4 text-center">
+        | copyright © 2020 <a href="https://themefisher.com">Themefisher</a> All Rights Reserved |
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var indexURL = "https://www.alexgama.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://www.alexgama.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://www.alexgama.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://www.alexgama.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://www.alexgama.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://www.alexgama.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://www.alexgama.io/plugins/search/mark.js"></script>
+
+<script src="https://www.alexgama.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://www.alexgama.io/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-166458317-1', 'auto');
+  ga('send', 'pageview');
+</script></body>
+</html>
