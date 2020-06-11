@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Day 4 of 30 - Ruby Coding Challenges in 30 Days. I want to rewrite the previous coding challenge using recursion, which was counting how many items are in a given array">
+  <meta name="description" content="Day 5 of 30 - Ruby Coding Challenges in 30 Days. We&#39;re going to solve the problem of getting the sum of prime numbers a given array using functional programming with Ruby">
   <meta name="author" content="Alex Gama">
   <meta name="generator" content="Hugo 0.70.0" />
 
@@ -122,132 +122,117 @@
         <a href="/categories/ruby"
           class="text-primary">Ruby</a>
         
-        <h2>Day 4 of 30 - Ruby Coding Challenge - Prime Algorithm Recursively</h2>
+        <h2>Day 5 of 30 - Ruby Coding Challenge - Sum Prime Numbers Functionally</h2>
         <div class="mb-3 post-meta">
           <span>By Alex Gama</span>
           
           <span class="border-bottom border-primary px-2 mx-1"></span>
-          <span>07 June 2020</span>
+          <span>11 June 2020</span>
           
         </div>
         
-        <img src="https://www.alexgama.io/images/post/ruby/ruby-series/day-4-of-30-Ruby-Coding-Challenge-prime-algorithm-recursively.png" class="img-fluid w-100 mb-4" alt="Day 4 of 30 - Ruby Coding Challenge - Prime Algorithm Recursively">
+        <img src="https://www.alexgama.io/images/post/ruby/ruby-series/day-4-of-30-Ruby-Coding-Challenge-prime-algorithm-recursively.png" class="img-fluid w-100 mb-4" alt="Day 5 of 30 - Ruby Coding Challenge - Sum Prime Numbers Functionally">
         
         <div class="content mb-5">
           <p>Hey!</p>
-<p>Day 4 of 30: Ruby Coding Challenge number 4. This is the post version of the <a href="https://www.youtube.com/watch?v=cO9dNVzjz8c">Youtube video</a></p>
-<p>I want to rewrite the <a href="https://www.youtube.com/watch?v=Y3W64fXmfkw">coding challenge number 3</a> using <strong>recursion</strong>, which was:</p>
+<p>Day 5 of 30 of this Ruby Coding Challenge series where we&rsquo;ll explore the following problem:</p>
 <blockquote>
-<p>How many prime items are in a given array?</p>
+<p>Generate a Sum of Prime Numbers in a Given an Array</p>
 </blockquote>
-<p>Let&rsquo;s get into it.</p>
-<h2 id="1---first-algorithm-version">#1 - First Algorithm Version</h2>
-<p>It was the final algorithm version:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">count_prime_number_version_2</span>(array)
-  array<span style="color:#f92672">.</span>count <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>item<span style="color:#f92672">|</span>
-    is_prime_number(item)
-  <span style="color:#66d9ef">end</span>
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_prime_number</span>(item)
-  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span> <span style="color:#66d9ef">if</span> item <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
-
-  (<span style="color:#ae81ff">2</span><span style="color:#f92672">..</span>(item <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>))<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>number<span style="color:#f92672">|</span>
-    <span style="color:#66d9ef">if</span> item <span style="color:#f92672">%</span> number <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
-      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
-    <span style="color:#66d9ef">end</span>
-  <span style="color:#66d9ef">end</span>
-  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
-<span style="color:#66d9ef">end</span>
-
-array <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span><span style="color:#f92672">]</span>
-puts count_prime_number_recursively(array)
-</code></pre></div><p>Instead of having that array loop in the <strong>is_prime_number()</strong> method:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_prime_number</span>(item)
-  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span> <span style="color:#66d9ef">if</span> item <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
-
-  (<span style="color:#ae81ff">2</span><span style="color:#f92672">..</span>(item <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>))<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>number<span style="color:#f92672">|</span>
-    <span style="color:#66d9ef">if</span> item <span style="color:#f92672">%</span> number <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
-      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
-    <span style="color:#66d9ef">end</span>
-  <span style="color:#66d9ef">end</span>
-  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
-<span style="color:#66d9ef">end</span>
-</code></pre></div><p>We&rsquo;re going to rewrite this method using <strong>recursion</strong>.</p>
-<h2 id="1-recursive-algorithms">#1 Recursive Algorithms</h2>
-<p>I know. Recursion is one of the monsters when it comes to coding, along with memory management and giving names to variables.</p>
-<p>Just a quick reminder:</p>
-<blockquote>
-<p>A recursive algorithm calls itself with a smaller version of its own problem</p>
-</blockquote>
-<p>I&rsquo;m not going to go into much detail about recursion because I&rsquo;m kind of assuming you already know something about it, however, I might be wrong. Because of that, I&rsquo;m recording and writing a special tutorial to go through the benefits (and some costs) of recursive algorithms 😏</p>
-<p><strong>Step 1:</strong></p>
+<p>The previous Ruby Coding Challenge was about counting how many items are prime in a given array.</p>
+<p>This one is quite similar and as usual, we&rsquo;ll:</p>
 <ul>
-<li>A recursive function calls itself</li>
+<li>solve the problem manually</li>
+<li>solve the problem in a more lovable Ruby way</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_prime_number</span>(item)
-  <span style="color:#66d9ef">return</span> is_prime_number(item)
-<span style="color:#66d9ef">end</span>
-</code></pre></div><p><strong>Step 2:</strong></p>
-<ul>
-<li>we need at least one condition to call the function again, which is when <strong>item is not evenly dividable by number</strong></li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_prime_number</span>(item)
-  <span style="color:#66d9ef">return</span> is_prime_number(item) <span style="color:#66d9ef">if</span> item <span style="color:#f92672">%</span> number <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">end</span>
-</code></pre></div><p><strong>Step 3:</strong></p>
-<ul>
-<li>we already know that 1 is not a prime number as we&rsquo;ve seen in the <a href="https://www.youtube.com/watch?v=Y3W64fXmfkw">previous algorithm</a></li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_prime_number</span>(item)
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span> <span style="color:#66d9ef">if</span> item <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
-
-  <span style="color:#66d9ef">return</span> is_prime_number(item) <span style="color:#66d9ef">if</span> item <span style="color:#f92672">%</span> number <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">end</span>
-</code></pre></div><p><strong>Step 4:</strong></p>
-<ul>
-<li>we should call the method itself with the current <strong>number - 1</strong>, which is the logic we have using so far</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_prime_number</span>(item, number)
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span> <span style="color:#66d9ef">if</span> item <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
-
-  <span style="color:#66d9ef">return</span> is_prime_number(item, number <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">if</span> item <span style="color:#f92672">%</span> number <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">end</span>
-</code></pre></div><p><strong>Step 5:</strong></p>
-<ul>
-<li>we should <strong>return true if numbers reaches 1</strong>, which means that the number is actual prime</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_prime_number</span>(item, number)
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span> <span style="color:#66d9ef">if</span> item <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">if</span> number <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
-  <span style="color:#66d9ef">return</span> is_prime_number(item, number <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">if</span> item <span style="color:#f92672">%</span> number <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">end</span>
-</code></pre></div><p>The entire code is:</p>
+<p>Let&rsquo;s get into it</p>
+<h2 id="1---lets-revisit-the-previous-ruby-coding-challenge">#1 - Let&rsquo;s Revisit the Previous Ruby Coding Challenge</h2>
+<p>Below we have the final version of our algorithm in Ruby, which has the method <strong>count_prime_numbers()</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">count_prime_numbers</span>(array)
   array<span style="color:#f92672">.</span>count <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>item<span style="color:#f92672">|</span>
-    is_prime_number(item, item <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+    is_prime(item)
   <span style="color:#66d9ef">end</span>
 <span style="color:#66d9ef">end</span>
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_prime_number</span>(item, number)
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span> <span style="color:#66d9ef">if</span> item <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">if</span> number <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
-  <span style="color:#66d9ef">return</span> is_prime_number(item, number <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">if</span> item <span style="color:#f92672">%</span> number <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_prime</span>(item)
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span> <span style="color:#66d9ef">if</span> item <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
+
+  (<span style="color:#ae81ff">2</span><span style="color:#f92672">..</span>(item <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>))<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>number<span style="color:#f92672">|</span>
+    <span style="color:#66d9ef">if</span> item <span style="color:#f92672">%</span> number <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
 <span style="color:#66d9ef">end</span>
 
 array <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span><span style="color:#f92672">]</span>
 puts count_prime_numbers(array)
-</code></pre></div><p>And that&rsquo;s it!</p>
-<p>To be honest, this is not an easy topic (at least for me) to explain in writing and maybe you <a href="https://www.youtube.com/watch?v=cO9dNVzjz8c">get a better picture watching the video :)</a></p>
-<p>Just a reminder. This is not about Ruby, it&rsquo;s all about concepts and logics and having some fun while solving these problems.</p>
+</code></pre></div><h2 id="2---creating-the-sum-method">#2 - Creating the Sum Method</h2>
+<p>Let&rsquo;s replace the <strong>count_prime_numbers()</strong> method by a method that sum the prime numbers, which will be creatively called <strong>sum_prime_numbers():</strong></p>
+<p>The new method should:</p>
+<ul>
+<li>iterate over the array</li>
+<li>check if the current item is prime</li>
+<li>sum the prime item</li>
+</ul>
+<p>Pretty simple. Translating into Ruby code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum_prime_number</span>(array)
+  sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+  <span style="color:#66d9ef">for</span> item <span style="color:#66d9ef">in</span> array
+    <span style="color:#66d9ef">if</span> is_prime_number(item)
+      sum <span style="color:#f92672">+=</span> item
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">return</span> sum
+<span style="color:#66d9ef">end</span>
+
+array <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span><span style="color:#f92672">]</span>
+puts sum_prime_number(array)
+</code></pre></div><p>Cool. But what about the lovable Ruby way to solve problems?</p>
+<h2 id="3---ruby-way">#3 - Ruby Way</h2>
+<p>One important Ruby style is that we can manipulate arrays without worrying about temporary variables. Nice!</p>
+<p>Going in parts, we can at least two favors to Ruby:</p>
+<ul>
+<li>Hey Ruby, given an array, select only items that match a specific condition</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">array<span style="color:#f92672">.</span>select { <span style="color:#f92672">|</span>item<span style="color:#f92672">|</span> is_prime(item) }
+</code></pre></div><p>Beautiful. Almost plain English.</p>
+<p>If you execute the code above, you&rsquo;ll end up with a smaller array, with only prime numbers:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">array <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span><span style="color:#f92672">]</span>
+puts array<span style="color:#f92672">.</span>select { <span style="color:#f92672">|</span>item<span style="color:#f92672">|</span> is_prime(item) }
+<span style="color:#75715e"># result: [2, 3, 5, 7]</span>
+</code></pre></div><p>The next step is asking Ruby another favor:</p>
+<ul>
+<li>Hey Ruby, by the way, now that you have an array with only prime numbers, reduce this array into a sum of all of the items</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">array<span style="color:#f92672">.</span>select{ <span style="color:#f92672">|</span>item<span style="color:#f92672">|</span> is_prime(item) }<span style="color:#f92672">.</span>reduce(<span style="color:#e6db74">:+</span>)
+</code></pre></div><p>Beautifully, Ruby has the method <strong>reduce()</strong>, which receives the <strong>+ method</strong> that will be used to sum all of the items</p>
+<p>The complete code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum_prime_number</span>(array)
+	array<span style="color:#f92672">.</span>select{ <span style="color:#f92672">|</span>item<span style="color:#f92672">|</span> is_prime(item) }<span style="color:#f92672">.</span>reduce(<span style="color:#e6db74">:+</span>)
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_prime</span>(item)
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span> <span style="color:#66d9ef">if</span> item <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
+
+  (<span style="color:#ae81ff">2</span><span style="color:#f92672">..</span>(item <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>))<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>number<span style="color:#f92672">|</span>
+    <span style="color:#66d9ef">if</span> item <span style="color:#f92672">%</span> number <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+<span style="color:#66d9ef">end</span>
+
+array <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span><span style="color:#f92672">]</span>
+puts sum_prime_number(array)
+</code></pre></div><p>Notice that we ended up by having a more functional style, since this code is more declarative. I&rsquo;m preparing a series to explore Functional Programming in JavaScript, Python, Java, and Ruby with some comparisons with Haskell. I hope to get you into this journey :)</p>
+<p>I Hope that you&rsquo;ve enjoyed 1 thing or maybe 2 and see you in the next coding challenge :)</p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/cO9dNVzjz8c" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
-<p>Thanks for your visit, let&rsquo;s keep in touch and see you in the next challenge :)</p>
+<p>Don&rsquo;t forget to keep in touch and say hi Alex</p>
 <p><a href="https://twitter.com/_alex_gama/">Twitter</a>
 <a href="https://www.youtube.com/channel/UCn09BXJXOCPLARsqNvxEFuw?view_as=subscriber/">Youtube</a>
 <a href="https://www.instagram.com/_alex_gama">Instagram</a>
