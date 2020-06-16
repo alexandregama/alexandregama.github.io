@@ -6,10 +6,40 @@
     <description>Recent content in 30daysCoding on Alex Gama | Personal blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 Jun 2020 13:49:23 +0600</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2020 13:49:23 +0600</lastBuildDate>
     
 	<atom:link href="https://www.alexgama.io/tags/30dayscoding/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Day 8 of 30 - Ruby Coding Challenge - Factorial Numbers - Functional Version 1</title>
+      <link>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-8-factorial-numbers-functional-programming-version-1/</link>
+      <pubDate>Tue, 16 Jun 2020 13:49:23 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-8-factorial-numbers-functional-programming-version-1/</guid>
+      <description>Hey folks!
+In today&amp;rsquo;s post, which is the writing version of the Youtube video, we&amp;rsquo;ll finally achieve our dreams of writing the Factorial Algorithm in a more Ruby way.</description>
+    </item>
+    
+    <item>
+      <title>Day 7 of 30 - Ruby Coding Challenge - Factorial Numbers - Better Version</title>
+      <link>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-7-factorial-numbers-version-2/</link>
+      <pubDate>Mon, 15 Jun 2020 13:49:23 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-7-factorial-numbers-version-2/</guid>
+      <description>Hey folks!
+In today&amp;rsquo;s post, which is the writing version of the Youtube video, we&amp;rsquo;ll rewrite the previous algorithm with a little bit better version.</description>
+    </item>
+    
+    <item>
+      <title>Day 6 of 30 - Ruby Coding Challenge - Factorial Numbers Ugly Version</title>
+      <link>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-6-factorial-numbers-version-1/</link>
+      <pubDate>Sun, 14 Jun 2020 13:49:23 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-6-factorial-numbers-version-1/</guid>
+      <description>Hey folks!
+In today&amp;rsquo;s post, which is the writing version of the Youtube video, we&amp;rsquo;ll explore how to calculate Factorial Numbers in Ruby.</description>
+    </item>
     
     <item>
       <title>Day 5 of 30 - Ruby Coding Challenge - Sum Prime Numbers Functionally</title>
@@ -19,6 +49,16 @@
       <guid>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-5-sum-prime-numbers-functional-programming/</guid>
       <description>Hey!
 Day 5 of 30 of this Ruby Coding Challenge series and this is the post version of the Youtube video.</description>
+    </item>
+    
+    <item>
+      <title>Day 9 of 30 - Ruby Coding Challenge - Factorial Numbers - Final Functional Version</title>
+      <link>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-9-factorial-numbers-functional-programming-version-2/</link>
+      <pubDate>Thu, 11 Jun 2020 13:49:23 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-9-factorial-numbers-functional-programming-version-2/</guid>
+      <description>Hey folks!
+In today&amp;rsquo;s post, which is the writing version of the Youtube video, we&amp;rsquo;ll finally finish in an elegant way our journey of writing Factorials in Ruby.</description>
     </item>
     
     <item>
