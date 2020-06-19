@@ -6,10 +6,20 @@
     <description>Recent content in Ruby on Alex Gama | Personal blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Jun 2020 13:49:23 +0600</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2020 13:49:23 +0600</lastBuildDate>
     
 	<atom:link href="https://www.alexgama.io/categories/ruby/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Day 10 of 30 - Ruby Coding Challenge - Recursive Factorial Numbers</title>
+      <link>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-10-recursive-factorial-algorithm/</link>
+      <pubDate>Fri, 19 Jun 2020 13:49:23 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-10-recursive-factorial-algorithm/</guid>
+      <description>Hey!
+Today we&amp;rsquo;re going to solve the previous Factorial problem using recursion in Ruby 👌.</description>
+    </item>
     
     <item>
       <title>Day 8 of 30 - Ruby Coding Challenge - Factorial Numbers - Functional Version 1</title>
@@ -49,6 +59,16 @@ In today&amp;rsquo;s post, which is the writing version of the Youtube video, we
       <guid>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-5-sum-prime-numbers-functional-programming/</guid>
       <description>Hey!
 Day 5 of 30 of this Ruby Coding Challenge series and this is the post version of the Youtube video.</description>
+    </item>
+    
+    <item>
+      <title>Day 9 of 30 - Ruby Coding Challenge - Factorial Numbers - Final Functional Version</title>
+      <link>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-9-factorial-numbers-functional-programming-version-2/</link>
+      <pubDate>Thu, 11 Jun 2020 13:49:23 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-9-factorial-numbers-functional-programming-version-2/</guid>
+      <description>Hey folks!
+In today&amp;rsquo;s post, which is the writing version of the Youtube video, we&amp;rsquo;ll finally finish in an elegant way our journey of writing Factorials in Ruby.</description>
     </item>
     
     <item>

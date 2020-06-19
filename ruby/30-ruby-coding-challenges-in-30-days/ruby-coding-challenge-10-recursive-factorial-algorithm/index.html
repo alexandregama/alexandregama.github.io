@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Day 9 of 30 - Ruby Coding Challenges in 30 Days. We&#39;re going to finish our journey of writing Factorials in Ruby by changing the previous algorithm a little bit more to reflect a more Ruby way to solve code">
+  <meta name="description" content="Day 10 of 30 - Ruby Coding Challenges in 30 Days. We&#39;re going solve the Factorial problem using recursion in Ruby">
   <meta name="author" content="Alex Gama">
   <meta name="generator" content="Hugo 0.70.0" />
 
@@ -122,55 +122,30 @@
         <a href="/categories/ruby"
           class="text-primary">Ruby</a>
         
-        <h2>Day 9 of 30 - Ruby Coding Challenge - Factorial Numbers - Final Functional Version</h2>
+        <h2>Day 10 of 30 - Ruby Coding Challenge - Recursive Factorial Numbers</h2>
         <div class="mb-3 post-meta">
           <span>By Alex Gama</span>
           
           <span class="border-bottom border-primary px-2 mx-1"></span>
-          <span>11 June 2020</span>
+          <span>19 June 2020</span>
           
         </div>
         
-        <img src="https://www.alexgama.io/images/post/ruby/ruby-series/day-9-of-30-Ruby-Coding-Challenge-factorial-final-ruby-way-functional-programming.png" class="img-fluid w-100 mb-4" alt="Day 9 of 30 - Ruby Coding Challenge - Factorial Numbers - Final Functional Version">
+        <img src="https://www.alexgama.io/images/post/ruby/ruby-series/day-9-of-30-Ruby-Coding-Challenge-factorial-ruby-way-2-functional-programming.png" class="img-fluid w-100 mb-4" alt="Day 10 of 30 - Ruby Coding Challenge - Recursive Factorial Numbers">
         
         <div class="content mb-5">
-          <p>Hey folks!</p>
-<p>In today&rsquo;s post, which is the writing version of the Youtube video, we&rsquo;ll finally finish in an elegant way our journey of writing Factorials in Ruby.</p>
-<h2 id="1---algorithm-version-3-ruby-rocks">#1 - Algorithm Version 3. Ruby Rocks</h2>
-<p>This is the previous solution to our problem if calculating Factorial in Ruby</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">factorial_version_3</span>(number)
-  (<span style="color:#ae81ff">1</span><span style="color:#f92672">..</span>number)<span style="color:#f92672">.</span>reduce(<span style="color:#e6db74">:*</span>)
-<span style="color:#66d9ef">end</span>
-
-puts factorial_version_3(<span style="color:#ae81ff">5</span>)
-</code></pre></div><h2 id="2---algorithm-version-4-it-can-be-even-better">#2 - Algorithm Version 4. It Can Be Even Better</h2>
-<p>Now it&rsquo;s to know the method <strong>downto(),</strong> which can be called in numbers!</p>
-<p>We can just ask to Ruby: Can you iterate from a number down to another number?</p>
-<p>Take a look at this code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">puts <span style="color:#ae81ff">10</span><span style="color:#f92672">.</span>downto(<span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>to_a
-
-<span style="color:#75715e"># output</span>
-<span style="color:#ae81ff">10</span>
-<span style="color:#ae81ff">9</span>
-<span style="color:#ae81ff">8</span>
-<span style="color:#ae81ff">7</span>
-<span style="color:#ae81ff">6</span>
-<span style="color:#ae81ff">5</span>
-<span style="color:#ae81ff">4</span>
-<span style="color:#ae81ff">3</span>
-<span style="color:#ae81ff">2</span>
-<span style="color:#ae81ff">1</span>
-</code></pre></div><p>Notice that the result will be numbers between <strong>10 and 1</strong>, which Ruby handles automatically. Nice!</p>
-<p>The next (and final) step is just indicate to Ruby the we want a reduced value from this list of numbers.</p>
-<p>We can easily do that using the method <strong>reduce()</strong> that we met in the previous algorithm</p>
-<p>The final result:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">factorial_version_4</span>(number)
-  number<span style="color:#f92672">.</span>downto(<span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>reduce(<span style="color:#e6db74">:*</span>)
-<span style="color:#66d9ef">end</span>
-
-puts factorial_version_4(<span style="color:#ae81ff">5</span>)
-</code></pre></div><p>Amazing!</p>
-<p>If you want to compare with the first version:</p>
+          <p>Hey!</p>
+<p>Today we&rsquo;re going to solve the previous Factorial problem using <strong>recursion in Ruby 👌</strong>. This is the post version of the <a href="https://www.youtube.com/watch?v=szH91N0HZ_w">Youtube video</a> :)</p>
+<p>Just a reminder, <strong>it doesn&rsquo;t matter</strong> if you&rsquo;re using Ruby, Python, JavaScript, or your favorite language, what really matters is the concepts and logic to solve problems</p>
+<p>If you haven&rsquo;t watched the <a href="https://www.youtube.com/watch?v=szH91N0HZ_w">previous video</a>, I just want to remember the definition of a Factorial number</p>
+<blockquote>
+<p>A Factorial number N is the product of all positive integers less than or equal to the number N</p>
+</blockquote>
+<p>We indicate a Factorial number as <strong>N!</strong></p>
+<p>Real example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#ae81ff">5</span><span style="color:#f92672">!</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">*</span><span style="color:#ae81ff">4</span><span style="color:#f92672">*</span><span style="color:#ae81ff">3</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1</span>
+<span style="color:#75715e"># result in 120</span>
+</code></pre></div><p>A possible (and not so beautiful) solution to this problem is the solution in the <a href="https://www.youtube.com/watch?v=Ee1p3P-Yx_c">first video</a>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">factorial</span>(number)
   result <span style="color:#f92672">=</span> number
   <span style="color:#66d9ef">while</span> number <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>
@@ -181,19 +156,48 @@ puts factorial_version_4(<span style="color:#ae81ff">5</span>)
 <span style="color:#66d9ef">end</span>
 
 puts factorial(<span style="color:#ae81ff">5</span>) <span style="color:#75715e"># 120</span>
-</code></pre></div><p>One final note: I completely forgot to validate the Factorial of zero, which is by definition 1.</p>
-<p>I don&rsquo;t want to put complexity, so I&rsquo;ll just add a conditional in the method:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">factorial_version_4</span>(number)
+</code></pre></div><h2 id="recursion">Recursion</h2>
+<p>Again, just recalling what the recursion technique is:</p>
+<blockquote>
+<p>Recursion is when you solve a problem by breaking the problem down into smaller versions of the same problem</p>
+</blockquote>
+<p>And when it comes to coding, the method or function calls on itself :)</p>
+<p>Before going to code, let&rsquo;s see the first example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#ae81ff">5</span><span style="color:#f92672">!</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">*</span><span style="color:#ae81ff">4</span><span style="color:#f92672">*</span><span style="color:#ae81ff">3</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1</span>
+</code></pre></div><p>But you can actually calculate this way:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#ae81ff">5</span><span style="color:#f92672">!</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">*</span><span style="color:#ae81ff">4</span><span style="color:#f92672">!</span>
+</code></pre></div><p>Because 4! = 4<em>3</em>2*1, which is a small part of the <strong>5!</strong> problem</p>
+<p>You can go further and say:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#ae81ff">5</span><span style="color:#f92672">!</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">*</span><span style="color:#ae81ff">4</span><span style="color:#f92672">*</span><span style="color:#ae81ff">3</span><span style="color:#f92672">!</span>
+</code></pre></div><p>A little bit more</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#ae81ff">5</span><span style="color:#f92672">!</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">*</span><span style="color:#ae81ff">4</span><span style="color:#f92672">*</span><span style="color:#ae81ff">3</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">!</span>
+</code></pre></div><p>And finally</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#ae81ff">5</span><span style="color:#f92672">!</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">*</span><span style="color:#ae81ff">4</span><span style="color:#f92672">*</span><span style="color:#ae81ff">3</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1</span>
+</code></pre></div><p>Notice that we&rsquo;ve broken that down into smaller Factorial calculations</p>
+<p>The recursive Ruby method will be the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">factorial</span>(number)
   <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">if</span> number <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
-  number<span style="color:#f92672">.</span>downto(<span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>reduce(<span style="color:#e6db74">:*</span>)
+  <span style="color:#66d9ef">return</span> number <span style="color:#f92672">*</span> factorial(number <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
 <span style="color:#66d9ef">end</span>
-
-puts factorial_version_4(<span style="color:#ae81ff">0</span>)
-</code></pre></div><p>There we go. Much simpler, which means, more readable and maintainable</p>
-<p>Thanks for the visit and see you in the next challenge :)</p>
+</code></pre></div><p>Notice that:</p>
+<ul>
+<li>returns 1 if the number is equal to 0. That&rsquo;s the criteria to stop the method execution</li>
+<li>returns number * factorial(number - 1) which, as we saw, is a method calling on itself</li>
+</ul>
+<p>A more leaner version of this method in Ruby would be:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">factorial</span>(number)
+  number <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">1</span> : number <span style="color:#f92672">*</span> factorial(number <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Also notice that:</p>
+<ul>
+<li>We don&rsquo;t need to explicitly use <strong>return</strong> in Ruby</li>
+<li>We&rsquo;re using a ternary condition, which in our case makes the readability (in my opinion) much better</li>
+</ul>
+<p>That&rsquo;s it!</p>
+<p>Hope you liked it and see you tomorrow in the <a href="https://www.youtube.com/watch?v=pfaecP3Wbjw&amp;list=PLEoubTKvE34g5uL5_pg5FOoo3Ae6vlSwu">next challenge</a> :)</p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/szH91N0HZ_w" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+  <iframe src="https://www.youtube.com/embed/rB2kEIsGUFc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
 <p>Don&rsquo;t forget to keep in touch and say hi Alex</p>
