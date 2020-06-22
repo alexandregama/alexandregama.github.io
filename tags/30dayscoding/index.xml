@@ -6,10 +6,20 @@
     <description>Recent content in 30daysCoding on Alex Gama | Personal blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Jun 2020 13:49:23 +0600</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2020 13:49:23 +0600</lastBuildDate>
     
 	<atom:link href="https://www.alexgama.io/tags/30dayscoding/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Day 12 of 30 - Ruby Coding Challenge - Repdigit Number Algorithm in a more Ruby Way</title>
+      <link>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-12-repdigit-algorithm-ruby-way/</link>
+      <pubDate>Mon, 22 Jun 2020 13:49:23 +0600</pubDate>
+      
+      <guid>https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-12-repdigit-algorithm-ruby-way/</guid>
+      <description>Hey!
+This is the blog post version of the Youtube video from the 30 Ruby Coding Challenges in 30 Days series</description>
+    </item>
     
     <item>
       <title>Day 11 of 30 - Ruby Coding Challenge - Repdigit Number Algorithm</title>

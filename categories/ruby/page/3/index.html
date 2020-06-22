@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Day 11 of 30 - Ruby Coding Challenges in 30 Days. We&#39;re going solve the the Repdigit Algorithm, which validates if a digit is repeated in the whole number">
+  <meta name="description" content="Blog about coding courses, tutorials, technology and personal notes">
   <meta name="author" content="Alex Gama">
   <meta name="generator" content="Hugo 0.70.0" />
 
@@ -114,112 +114,197 @@
 </header>
 <!-- /navigation -->
 
+
 <section class="section-sm">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 mx-auto">
+      <div class="col-lg-8 mb-5 mb-lg-0">
+        <div class="row">
+          
+          
+          <div class="col-md-6 mb-4">
+    <article class="card">
+        
+        <img src="https://www.alexgama.io/images/post/ruby/ruby-series/30-Ruby-Coding-Challenges-Thumbnail.png" class="card-img-top" alt="Day 1 of 30 - Ruby Coding Challenge - Arrays and Blocks">
+        
+        <div class="card-body px-0">
         
         <a href="/categories/ruby"
-          class="text-primary">Ruby</a>
+            class="text-primary">Ruby</a>
         
-        <h2>Day 11 of 30 - Ruby Coding Challenge - Repdigit Number Algorithm</h2>
+        <a href="https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-1-arrays-and-blocks/" class="h5 d-block my-3">Day 1 of 30 - Ruby Coding Challenge - Arrays and Blocks</a>
         <div class="mb-3 post-meta">
-          <span>By Alex Gama</span>
-          
-          <span class="border-bottom border-primary px-2 mx-1"></span>
-          <span>21 June 2020</span>
+            <span>By Alex Gama</span>
+            
+            <span class="border-bottom border-primary px-2 mx-1"></span>
+            <span>04 June 2020</span>
+            
+        </div>
+        <p class="card-text">Hey friend!
+This is the first Part of this series of 30 Coding Challenges in Ruby for:</p>
+        <a href="https://www.alexgama.io/ruby/30-ruby-coding-challenges-in-30-days/ruby-coding-challenge-1-arrays-and-blocks/" class="btn btn-outline-primary">read more</a>
+        </div>
+    </article>
+</div>
           
         </div>
-        
-        <img src="https://www.alexgama.io/images/post/ruby/ruby-series/day-11-of-30-Ruby-Coding-Challenge-repdigit-number-algorithm.png" class="img-fluid w-100 mb-4" alt="Day 11 of 30 - Ruby Coding Challenge - Repdigit Number Algorithm">
-        
-        <div class="content mb-5">
-          <p>Hey!</p>
-<p>This is the blog post version of the <a href="https://www.youtube.com/watch?v=gv3Qddjp5IY">Youtube video</a> of the <a href="https://www.youtube.com/watch?v=pfaecP3Wbjw&amp;list=PLEoubTKvE34g5uL5_pg5FOoo3Ae6vlSwu">Ruby Coding Challenges in 30 days</a>.</p>
-<p>Today we&rsquo;re going to solve this simple and elegant coding challenge, which is the <strong>Repdigit Algorithm</strong>:</p>
-<blockquote>
-<p>Given a number, I want to check if the number is composed of repeated instances of the same digit</p>
-</blockquote>
-<p>That was the fancy definition.</p>
-<p>Real Life:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#ae81ff">999999</span>
-</code></pre></div><p>This is a Repdigit (repeated digit) because it <strong>repeats 9 for the whole number</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#ae81ff">7777</span>
-</code></pre></div><p>This is a Repdigit because it <strong>repeats 7 for the whole number</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#ae81ff">666664</span>
-</code></pre></div><p>This is not a Repdigit because <strong>it doesn&rsquo;t repeat 6</strong> for the whole number</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#ae81ff">333444777</span>
-</code></pre></div><p>This is not a Repdigit because it doesn&rsquo;t <strong>repeat 3,4 or 7 for the whole number</strong></p>
-<p>I think you got it. Very simple.</p>
-<h2 id="1-repdigit-algorithm-solution">#1 Repdigit Algorithm Solution</h2>
-<p>One possible solution is</p>
-<ul>
-<li>convert the number into an array</li>
-<li>take the first digit of the number</li>
-<li>check if all of the numbers are the same digit</li>
-</ul>
-<p>Pretty simple, right?</p>
-<p>Let&rsquo;s see how Ruby handles it.</p>
-<p><strong>Step 1</strong></p>
-<p>The first step is actually to convert the Integer into a String so that we can be able to manipulate it</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">array <span style="color:#f92672">=</span> number<span style="color:#f92672">.</span>to_s
-</code></pre></div><p><strong>Step 2</strong></p>
-<p>Now it&rsquo;s time to create the array based on that string</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">array <span style="color:#f92672">=</span> number<span style="color:#f92672">.</span>to_s<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;&#39;</span>)
-</code></pre></div><p><strong>Step 3</strong></p>
-<p>Finally, let&rsquo;s convert each string in the array back to an integer</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">array <span style="color:#f92672">=</span> number<span style="color:#f92672">.</span>to_s<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;&#39;</span>)<span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">:to_i</span>)
-</code></pre></div><p><strong>Step 4</strong></p>
-<p>I&rsquo;m going to take the first digit to compare with all the numbers</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">digit <span style="color:#f92672">=</span> array<span style="color:#f92672">.</span>first
-</code></pre></div><p><strong>Step 5</strong></p>
-<p>Then the final step is to count <strong>how many digits in that number are different from the first digit</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">array <span style="color:#f92672">=</span> number<span style="color:#f92672">.</span>to_s<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;&#39;</span>)<span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">:to_i</span>)
-digit <span style="color:#f92672">=</span> array<span style="color:#f92672">.</span>first
-count <span style="color:#f92672">=</span> array<span style="color:#f92672">.</span>count { <span style="color:#f92672">|</span>item<span style="color:#f92672">|</span> item <span style="color:#f92672">!=</span> digit }
-</code></pre></div><p>Perfect! If the <strong>count</strong> variable is different from zero then we have a digit that is different from the first digit, which means that the number is not Repdigit</p>
-<p>The final solution would be:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_repdigit</span>(number)
-  array <span style="color:#f92672">=</span> number<span style="color:#f92672">.</span>to_s<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;&#39;</span>)<span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">:to_i</span>)
-  digit <span style="color:#f92672">=</span> array<span style="color:#f92672">.</span>first
-  count <span style="color:#f92672">=</span> array<span style="color:#f92672">.</span>count { <span style="color:#f92672">|</span>item<span style="color:#f92672">|</span> item <span style="color:#f92672">!=</span> digit }
-
-  <span style="color:#66d9ef">if</span> count <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">else</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
-  <span style="color:#66d9ef">end</span>
-<span style="color:#66d9ef">end</span>
-
-puts is_repdigit(<span style="color:#ae81ff">777</span>) <span style="color:#75715e"># tru</span>
-</code></pre></div><h2 id="2-a-leaner-solution-in-ruby">#2 A Leaner Solution in Ruby</h2>
-<p>A little bit leaner solution would be the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_repdigit_2</span>(number)
-  array <span style="color:#f92672">=</span> number<span style="color:#f92672">.</span>to_s<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;&#39;</span>)<span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">:to_i</span>)
-  array<span style="color:#f92672">.</span>count { <span style="color:#f92672">|</span>item<span style="color:#f92672">|</span> item <span style="color:#f92672">!=</span> array<span style="color:#f92672">.</span>first } <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">end</span>
-</code></pre></div><p>That&rsquo;s it!</p>
-<p>In the next video we&rsquo;re going to explore a Ruby Way to solve this algorithm. See you there :)</p>
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/gv3Qddjp5IY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+      </div>
+      
+      <div class="col-lg-4">
+  
+  <div class="widget">
+    
+    <h4 class="widget-title">About Me</h4>
+    
+    <img src="https://www.alexgama.io/images/alex-gama.jpg" alt=""
+      class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4">
+    
+    <p>Hey, I&rsquo;m Alex Gama, nice to meet you! I&rsquo;m one of the Co-Founders and CTO at @SouSmile, former Director of Engineering at @Gympass and Group Leader at @Elo7 and honestly, still trying to figure out what those things really mean :)</p>
+    <a href="https://www.alexgama.io/about/" class="btn btn-outline-primary">Know More</a>
+    
+  </div>
+  
+  <div class="widget">
+    <h4 class="widget-title">Category</h4>
+    <ul class="list-unstyled">
+      <li><a
+          href="/categories/architecture">Architecture</a>
+      </li>
+      <li><a
+          href="/categories/frameworks">Frameworks</a>
+      </li>
+      <li><a
+          href="/categories/java">Java</a>
+      </li>
+      <li><a
+          href="/categories/marketing">Marketing</a>
+      </li>
+      <li><a
+          href="/categories/personal">Personal</a>
+      </li>
+      <li><a
+          href="/categories/podcast-review">Podcast review</a>
+      </li>
+      <li><a
+          href="/categories/ruby">Ruby</a>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="widget">
+    <h4 class="widget-title">Tag</h4>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+          href="/tags/30dayscoding">30dayscoding</a></li>
+      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+          href="/tags/architecture">Architecture</a></li>
+      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+          href="/tags/beginners-tutorial">Beginners tutorial</a></li>
+      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+          href="/tags/blog">Blog</a></li>
+      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+          href="/tags/cdi-series">Cdi series</a></li>
+      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+          href="/tags/go">Go</a></li>
+      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+          href="/tags/graphql">Graphql</a></li>
+      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+          href="/tags/personal">Personal</a></li>
+      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+          href="/tags/productivity">Productivity</a></li>
+      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+          href="/tags/ruby-series">Ruby series</a></li>
+      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+          href="/tags/seo">Seo</a></li>
+    </ul>
+  </div>
+  
+  <div class="widget">
+    <h4 class="widget-title">Social</h4>
+    <ul class="list-inline social-links">
+      
+      <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCn09BXJXOCPLARsqNvxEFuw"><i class="ti-youtube"></i></a></li>
+      
+      <li class="list-inline-item"><a href="https://twitter.com/_alex_gama"><i class="ti-twitter-alt"></i></a></li>
+      
+      <li class="list-inline-item"><a href="https://www.instagram.com/_alex_gama"><i class="ti-instagram"></i></a></li>
+      
+      <li class="list-inline-item"><a href="https://github.com/alexandregama"><i class="ti-github"></i></a></li>
+      
+      <li class="list-inline-item"><a href="https://www.linkedin.com/in/alexandregama/"><i class="ti-linkedin"></i></a></li>
+      
+    </ul>
+  </div>
+  
 </div>
 
-<p>Don&rsquo;t forget to keep in touch and say hi Alex</p>
-<p><a href="https://twitter.com/_alex_gama/">Twitter</a>
-<a href="https://www.youtube.com/channel/UCn09BXJXOCPLARsqNvxEFuw?view_as=subscriber/">Youtube</a>
-<a href="https://www.instagram.com/_alex_gama">Instagram</a>
-<a href="https://www.linkedin.com/in/alexandregama/">Linkedin</a>
-<a href="https://github.com/alexandregama">GitHub</a></p>
+      
 
-        </div>
+      
+      <div class="col-12 mt-5">
+        
 
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/categories/ruby/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/categories/ruby/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
         
         
+    
+    
+    <li class="page-item"><a class="page-link" href="/categories/ruby/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/categories/ruby/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/categories/ruby/page/3/">3</a></li>
+    
+    
+    <li class="page-item disabled">
+    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/categories/ruby/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+
       </div>
     </div>
   </div>
 </section>
+
 
 
 <section class="section-sm">
